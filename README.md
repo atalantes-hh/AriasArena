@@ -1,7 +1,8 @@
 # AriasArena
 
 Game Basics : 
-2 players for a 1 vs 1 game mode
+2 players for a 1 vs 1 game mode.
+
 Each player has a team of three characters.
 Each character has health points, a name and a weapon.
 The characters attack with a weapon.
