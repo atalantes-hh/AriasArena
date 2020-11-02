@@ -12,19 +12,23 @@ class Character {
     var life: Int
     var weapon: Weapon
     var canHeal: Bool
-    var canAttack: Bool
     
-    init(name: String, life: Int, weapon:Weapon, canHeal: Bool, canAttack: Bool){
+    init(name: String, life: Int, weapon: Weapon, canHeal: Bool) {
         self.name = name
         self.life = life
         self.weapon = weapon
         self.canHeal = canHeal
-        self.canAttack = canAttack
+
     }
+    
     func action() {
-        
     }
-    func lifeupdate () {
+    
+    func lifeUpdate () {
         print("Lost \(life) point")
+    }
+    
+    func canAttack() -> Bool {
+        return life > 0
     }
 }

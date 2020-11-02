@@ -13,7 +13,7 @@ class Weapon {
     let damage: Int
     let care: Int
     
-    init(name: String, type: String, damage: Int, care: Int){
+    init(name: String, type: String, damage: Int, care: Int) {
         self.name = name
         self.type = type
         self.damage = damage

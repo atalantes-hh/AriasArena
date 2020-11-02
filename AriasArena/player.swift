@@ -10,14 +10,15 @@ import Foundation
 class Player {
     let name: String
     var play: Bool
-    let composition : Character
+    let composition: [Character]
     
-    init(name: String, play: Bool, composition: Character){
+    init(name: String, play: Bool, composition: [Character]) {
         self.name = name
         self.play = play
         self.composition = composition
     }
-    func playing () {
+    
+    func playing() {
         if play == true {
             playing()
         } else {
@@ -25,7 +26,8 @@ class Player {
         }
         
     }
-    func choice (){
+    
+    func choice() {
         
     }
 }
