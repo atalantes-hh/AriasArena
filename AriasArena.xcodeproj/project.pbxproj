@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1ED5FC07254059280062B037 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED5FC06254059280062B037 /* main.swift */; };
-		1ED5FC0F2540593F0062B037 /* character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED5FC0E2540593F0062B037 /* character.swift */; };
-		1ED5FC12254059560062B037 /* game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED5FC11254059560062B037 /* game.swift */; };
-		1ED5FC1525405A790062B037 /* player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED5FC1425405A790062B037 /* player.swift */; };
-		1ED5FC1825405A890062B037 /* weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED5FC1725405A890062B037 /* weapon.swift */; };
+		1E5BA0A82549A88000822CE5 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BA0A72549A88000822CE5 /* Menu.swift */; };
+		1E5BA0AC2549A97100822CE5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BA0AB2549A97100822CE5 /* main.swift */; };
+		1E5BA0B32549A99A00822CE5 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BA0B22549A99A00822CE5 /* Character.swift */; };
+		1E5BA0B62549A9A000822CE5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BA0B52549A9A000822CE5 /* Game.swift */; };
+		1E5BA0B92549A9A700822CE5 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BA0B82549A9A700822CE5 /* Player.swift */; };
+		1E5BA0BC2549A9AE00822CE5 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BA0BB2549A9AE00822CE5 /* Weapon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,12 +28,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1E5BA0A72549A88000822CE5 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		1E5BA0AB2549A97100822CE5 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1E5BA0B22549A99A00822CE5 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		1E5BA0B52549A9A000822CE5 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		1E5BA0B82549A9A700822CE5 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		1E5BA0BB2549A9AE00822CE5 /* Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		1ED5FC03254059280062B037 /* AriasArena */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AriasArena; sourceTree = BUILT_PRODUCTS_DIR; };
-		1ED5FC06254059280062B037 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		1ED5FC0E2540593F0062B037 /* character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = character.swift; sourceTree = "<group>"; };
-		1ED5FC11254059560062B037 /* game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = game.swift; sourceTree = "<group>"; };
-		1ED5FC1425405A790062B037 /* player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = player.swift; sourceTree = "<group>"; };
-		1ED5FC1725405A890062B037 /* weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weapon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,11 +67,12 @@
 		1ED5FC05254059280062B037 /* AriasArena */ = {
 			isa = PBXGroup;
 			children = (
-				1ED5FC06254059280062B037 /* main.swift */,
-				1ED5FC0E2540593F0062B037 /* character.swift */,
-				1ED5FC11254059560062B037 /* game.swift */,
-				1ED5FC1425405A790062B037 /* player.swift */,
-				1ED5FC1725405A890062B037 /* weapon.swift */,
+				1E5BA0AB2549A97100822CE5 /* main.swift */,
+				1E5BA0A72549A88000822CE5 /* Menu.swift */,
+				1E5BA0B52549A9A000822CE5 /* Game.swift */,
+				1E5BA0B22549A99A00822CE5 /* Character.swift */,
+				1E5BA0B82549A9A700822CE5 /* Player.swift */,
+				1E5BA0BB2549A9AE00822CE5 /* Weapon.swift */,
 			);
 			path = AriasArena;
 			sourceTree = "<group>";
@@ -84,6 +87,7 @@
 				1ED5FBFF254059280062B037 /* Sources */,
 				1ED5FC00254059280062B037 /* Frameworks */,
 				1ED5FC01254059280062B037 /* CopyFiles */,
+				1E6DABB02551B6450098FFD7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -126,16 +130,37 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1E6DABB02551B6450098FFD7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1ED5FBFF254059280062B037 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ED5FC1525405A790062B037 /* player.swift in Sources */,
-				1ED5FC1825405A890062B037 /* weapon.swift in Sources */,
-				1ED5FC12254059560062B037 /* game.swift in Sources */,
-				1ED5FC07254059280062B037 /* main.swift in Sources */,
-				1ED5FC0F2540593F0062B037 /* character.swift in Sources */,
+				1E5BA0B32549A99A00822CE5 /* Character.swift in Sources */,
+				1E5BA0A82549A88000822CE5 /* Menu.swift in Sources */,
+				1E5BA0AC2549A97100822CE5 /* main.swift in Sources */,
+				1E5BA0B92549A9A700822CE5 /* Player.swift in Sources */,
+				1E5BA0B62549A9A000822CE5 /* Game.swift in Sources */,
+				1E5BA0BC2549A9AE00822CE5 /* Weapon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
