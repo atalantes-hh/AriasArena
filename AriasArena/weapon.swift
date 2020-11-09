@@ -29,10 +29,10 @@ class Weapon {
 // Stick
 class Stick: Weapon {
     init() {
-    let name = "Shepherd's crook"
-    let type = "Stick"
-    let damage = 90
-    let care = 60
+        let name = "Shepherd's crook"
+        let type = "Stick"
+        let damage = 90
+        let care = 60
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
@@ -40,10 +40,10 @@ class Stick: Weapon {
 // Crossbow
 class Crossbow: Weapon {
     init() {
-    let name = "Tsangra"
-    let type = "Crossbow"
-    let damage = 115
-    let care = 0
+        let name = "Tsangra"
+        let type = "Crossbow"
+        let damage = 115
+        let care = 0
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
@@ -51,10 +51,10 @@ class Crossbow: Weapon {
 // Axe
 class Axe: Weapon {
     init() {
-    let name = "Bardiche"
-    let type = "Axe"
-    let damage = 125
-    let care = 0
+        let name = "Bardiche"
+        let type = "Axe"
+        let damage = 125
+        let care = 0
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
@@ -62,10 +62,10 @@ class Axe: Weapon {
 // Dagger
 class Dagger: Weapon {
     init() {
-    let name = "Medieval dagger"
-    let type = "Dagger"
-    let damage = 95
-    let care = 40
+        let name = "Medieval dagger"
+        let type = "Dagger"
+        let damage = 95
+        let care = 40
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
@@ -73,10 +73,10 @@ class Dagger: Weapon {
 // Pistol
 class Pistols: Weapon {
     init() {
-    let name = "Higgins"
-    let type = "Pistol"
-    let damage = 110
-    let care = 0
+        let name = "Higgins"
+        let type = "Pistol"
+        let damage = 110
+        let care = 0
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
@@ -84,10 +84,10 @@ class Pistols: Weapon {
 // Bow
 class Bow: Weapon {
     init() {
-    let name = "Meerk"
-    let type = "Bow"
-    let damage = 100
-    let care = 50
+        let name = "Meerk"
+        let type = "Bow"
+        let damage = 100
+        let care = 50
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
@@ -95,10 +95,10 @@ class Bow: Weapon {
 // Sword
 class Sword: Weapon {
     init() {
-    let name = "Damo"
-    let type = "Sword"
-    let damage = 120
-    let care = 0
+        let name = "Damo"
+        let type = "Sword"
+        let damage = 120
+        let care = 0
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
@@ -106,10 +106,10 @@ class Sword: Weapon {
 // Hammer
 class Hammer: Weapon {
     init() {
-    let name = "Mallet"
-    let type = "Hammer"
-    let damage = 130
-    let care = 0
+        let name = "Mallet"
+        let type = "Hammer"
+        let damage = 130
+        let care = 0
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }

@@ -7,8 +7,6 @@
 
 import Foundation
 
-// let character = [Witcher(), Shan(), Mystic(), DemonHunter(), DarthPriest(), Mage(), Nanga(), Scientist()]
-
 // Class Character
 class Character {
     let name: String
@@ -20,7 +18,6 @@ class Character {
         self.life = life
         self.weapon = weapon
         self.canHeal = canHeal
-
     }
     func action() {
     }
@@ -40,7 +37,7 @@ class Witcher: Character {
         let weapon = [Sword(), Axe()]
         let canHeal = false
         super.init(name: name, life: life, weapon: weapon, canHeal: canHeal)
-}
+    }
 }
 
 // Character Shan : Attack & Heal
@@ -51,7 +48,7 @@ class Shan: Character {
         let weapon = [Sword(), Bow(), Hammer()]
         let canHeal = true
         super.init(name: name, life: life, weapon: weapon, canHeal: canHeal)
-}
+    }
 }
 
 // Character Mystic : Attack & Heal
@@ -62,7 +59,7 @@ class Mystic: Character {
         let weapon = [Bow(), Dagger()]
         let canHeal = true
         super.init(name: name, life: life, weapon: weapon, canHeal: canHeal)
-}
+    }
 }
 
 // Character DemonHunter : Attack
@@ -73,7 +70,7 @@ class DemonHunter: Character {
         let weapon = [Crossbow(), Pistols(), Bow()]
         let canHeal = false
         super.init(name: name, life: life, weapon: weapon, canHeal: canHeal)
-}
+    }
 }
 
 // Character DarthPriest : Attack & Heal
@@ -84,7 +81,7 @@ class DarthPriest: Character {
         let weapon = [Stick(), Dagger()]
         let canHeal = true
         super.init(name: name, life: life, weapon: weapon, canHeal: canHeal)
-}
+    }
 }
 
 // Character Mage : Attack
@@ -95,7 +92,7 @@ class Mage: Character {
         let weapon = [Stick(), Dagger()]
         let canHeal = false
         super.init(name: name, life: life, weapon: weapon, canHeal: canHeal)
-}
+    }
 }
 
 // Character Nanga : Attack
@@ -106,7 +103,7 @@ class Nanga: Character {
         let weapon = [Hammer(), Axe(), Sword()]
         let canHeal = false
         super.init(name: name, life: life, weapon: weapon, canHeal: canHeal)
-}
+    }
 }
 
 // Character Scientist : Attack & Heal
@@ -117,5 +114,5 @@ class Scientist: Character {
         let weapon = [Pistols(), Bow()]
         let canHeal = true
         super.init(name: name, life: life, weapon: weapon, canHeal: canHeal)
-}
+    }
 }
