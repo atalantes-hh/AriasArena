@@ -10,11 +10,13 @@ import Foundation
 // Class Character
 class Character {
     let name: String
+    var alias: String
     var life: Int
     var weapon: [Weapon]
     var canHeal: Bool
-    init(name: String, life: Int, weapon: [Weapon], canHeal: Bool) {
+    init(name: String, alias: String, life: Int, weapon: [Weapon], canHeal: Bool) {
         self.name = name
+        self.alias = alias
         self.life = life
         self.weapon = weapon
         self.canHeal = canHeal
@@ -33,10 +35,11 @@ class Character {
 class Witcher: Character {
     init() {
         let name = "Witcher"
+        let alias = "Gerald"
         let life = 600
         let weapon = [Sword(), Axe()]
         let canHeal = false
-        super.init(name: name, life: life, weapon: weapon, canHeal: canHeal)
+        super.init(name: name, alias: alias, life: life, weapon: weapon, canHeal: canHeal)
     }
 }
 
@@ -44,10 +47,11 @@ class Witcher: Character {
 class Shan: Character {
     init() {
         let name = "Shan"
+        let alias = "Naco"
         let life = 300
         let weapon = [Sword(), Bow(), Hammer()]
         let canHeal = true
-        super.init(name: name, life: life, weapon: weapon, canHeal: canHeal)
+        super.init(name: name, alias: alias, life: life, weapon: weapon, canHeal: canHeal)
     }
 }
 
@@ -55,21 +59,23 @@ class Shan: Character {
 class Mystic: Character {
     init() {
         let name = "Mystic"
+        let alias = "Raka"
         let life = 325
         let weapon = [Bow(), Dagger()]
         let canHeal = true
-        super.init(name: name, life: life, weapon: weapon, canHeal: canHeal)
+        super.init(name: name, alias: alias, life: life, weapon: weapon, canHeal: canHeal)
     }
 }
 
 // Character DemonHunter : Attack
 class DemonHunter: Character {
     init() {
-        let name = "Demon hunter"
+        let name = "Demon Hunter"
+        let alias = "Kisa"
         let life = 450
         let weapon = [Crossbow(), Pistols(), Bow()]
         let canHeal = false
-        super.init(name: name, life: life, weapon: weapon, canHeal: canHeal)
+        super.init(name: name, alias: alias, life: life, weapon: weapon, canHeal: canHeal)
     }
 }
 
@@ -77,10 +83,11 @@ class DemonHunter: Character {
 class DarthPriest: Character {
     init() {
         let name = "Darth Priest"
+        let alias = "Magthael"
         let life = 350
         let weapon = [Stick(), Dagger()]
         let canHeal = true
-        super.init(name: name, life: life, weapon: weapon, canHeal: canHeal)
+        super.init(name: name, alias: alias, life: life, weapon: weapon, canHeal: canHeal)
     }
 }
 
@@ -88,10 +95,11 @@ class DarthPriest: Character {
 class Mage: Character {
     init() {
         let name = "Mage"
+        let alias = "Gandalf"
         let life = 400
         let weapon = [Stick(), Dagger()]
         let canHeal = false
-        super.init(name: name, life: life, weapon: weapon, canHeal: canHeal)
+        super.init(name: name, alias: alias, life: life, weapon: weapon, canHeal: canHeal)
     }
 }
 
@@ -99,20 +107,22 @@ class Mage: Character {
 class Nanga: Character {
     init() {
         let name = "Nanga"
+        let alias = "Arthas"
         let life = 600
         let weapon = [Hammer(), Axe(), Sword()]
         let canHeal = false
-        super.init(name: name, life: life, weapon: weapon, canHeal: canHeal)
+        super.init(name: name, alias: alias, life: life, weapon: weapon, canHeal: canHeal)
     }
 }
 
 // Character Scientist : Attack & Heal
 class Scientist: Character {
     init() {
-        let name = "Shan"
+        let name = "Scientist"
+        let alias = "Conor"
         let life = 425
         let weapon = [Pistols(), Bow()]
         let canHeal = true
-        super.init(name: name, life: life, weapon: weapon, canHeal: canHeal)
+        super.init(name: name, alias: alias, life: life, weapon: weapon, canHeal: canHeal)
     }
 }

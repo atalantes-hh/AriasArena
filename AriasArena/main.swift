@@ -18,3 +18,6 @@ Welcome to Arias
 
 let configuration = Configuration()
 configuration.showGeneral()
+let game = Game(player1: configuration.firstPlayer, player2: configuration.secondPlayer)
+game.runGame()
+game.endGame()

@@ -9,10 +9,9 @@ import Foundation
 
 // Func General Menu
 class Configuration {
-    private var firstPlayer: Player?
-    private var secondPlayer: Player?
-//    var teamFirstPlayer = Player()
-//    var teamSecondPlayer: Player?
+    private(set) var firstPlayer = Player()
+    private(set) var secondPlayer = Player()
+
     func showGeneral() {
         print("What do you want to do ?"
                 + "\n1. 🕹️ 1 vs 1"
@@ -21,10 +20,8 @@ class Configuration {
             switch menuChoice {
             case "1":
                 print("⚔️ We have a duel")
-                firstPlayer = configureFirstPlayer()
-                secondPlayer = configureSecondPlayer()
-  //              teamFirstPlayer.createTeam()
- //               teamSecondPlayer?.createTeam()
+                configureFirstPlayer()
+                configureSecondPlayer()
                 teamBuild()
             case "2":
                 print("📚 Game instructions")
@@ -35,11 +32,14 @@ class Configuration {
                     but I don't understand.
                     Can you repeat ?
                     """)
+                while true {
+                    configuration.showGeneral()
+                }
             }
         }
     }
     // Func Intro Team Player1
-    func configureFirstPlayer() -> Player {
+    func configureFirstPlayer() {
         print("""
 
         Hello, adventurer, what is the name of your tribe?
@@ -47,60 +47,75 @@ class Configuration {
         if let tribeNameP1 = readLine(), !tribeNameP1.isEmpty {
             print("""
 
-        Well members of \(tribeNameP1) tribe.
+        Well members of \(tribeNameP1) tribe. 🔴
         My name is Ragnarsson and I will escort you to the Arena of Arias.
+        Oh ! by the way, your color will be red ! 🔴
         """)
-            return Player(name: tribeNameP1)
+            firstPlayer.name = tribeNameP1
+        } else {
+            print("""
+
+        Well members of Guardians tribe. 🔴
+        My name is Ragnarsson and I will escort you to the Arena of Arias.
+        Oh ! by the way, your color will be red ! 🔴
+        """)
+            firstPlayer.name = "Guardians "
         }
-        print("""
-
-        Well members of Guardians tribe.
-        My name is Ragnarsson and I will escort you to the Arena of Arias.
-        """)
-        return Player(name: "Guardians")
-
+        firstPlayer.createTeam()
+        firstPlayer.changeAlias(compo: .firstchoice)
+        firstPlayer.changeAlias(compo: .secondchoice)
+        firstPlayer.changeAlias(compo: .lastchoice)
     }
     // Func Intro Team Player 2
-    func configureSecondPlayer() -> Player {
+    func configureSecondPlayer() {
         print("""
+
                 But first let me introduce you to your rivals of the day.
-                What's the name of your tribe, already opponents?
+                What's the name of your tribe, already opponents? 🔵
                 """)
         if let tribeNameP2 = readLine(), !tribeNameP2.isEmpty {
             print("""
 
-        Yes that's right, the \(tribeNameP2) tribe.
+        Yes that's right, the \(tribeNameP2) tribe. 🔵
+        And for you, your color will be blue ! 🔵
         """)
-            return Player(name: tribeNameP2)
-        }
-        print("""
+            secondPlayer.name = tribeNameP2
+        } else {
+            print("""
 
-    Yes that's right, The Saviors tribe.
+    Yes that's right, The Saviors tribe. 🔵
+    And for you, your color will be blue ! 🔵
     """)
-        return Player(name: "Saviors")
+            secondPlayer.name = "Saviors"
+        }
+        secondPlayer.createTeam()
+        secondPlayer.changeAlias(compo: .firstchoice)
+        secondPlayer.changeAlias(compo: .secondchoice)
+        secondPlayer.changeAlias(compo: .lastchoice)
     }
     // Function Build Teams
     func teamBuild() {
         print("""
-
-        Now that the introductions are made, let's see who are your companions of fortune from the \(String(describing: firstPlayer?.name)) tribe.
-        """)
+Now that the introductions are made, let's see who are your companions
+of fortune from the \(firstPlayer.name) tribe. 🔴
+""")
         print("""
-                    \(String(describing: firstPlayer?.name)) Leader: Before introducing myself, here are my two honourable companions.
-            I present to you the famous (NameAlias), (Character) of his state.
-            My second ally is a famous (Character) better known is the name of (NameAlias)
-            Concerning me, I am (NameAlias) the (Character)
+            🔴 \(firstPlayer.name) Mentor: I will introducing here are my tree honourable companions.
+            I present to you the famous \(firstPlayer.composition[0].alias), \(firstPlayer.composition[0].name) of his state.
+            My second ally is a famous \(firstPlayer.composition[1].name) better known is the name of \(firstPlayer.composition[1].alias)
+            Concerning the last one, He's \(firstPlayer.composition[2].alias) the \(firstPlayer.composition[2].name)
             """)
-        print("Ragnarsson: A very interesting choice of companions, and who are the comrades of the tribe \(String(describing: secondPlayer?.name)) ?")
         print("""
-                    \(String(describing: secondPlayer?.name)) Leader: Our fights are legendary but if you need to introduce us.
-            I will also introduce myself after my comrades.
-            Formerly known for his valiant fights in the greatest arenas of this world, here is (NameAlias) the (Character).
-            It scours the world in search of new challengers here is the () that we call (NameAlias)
-            And I am the danger, my name is (NameAlias) the (Character) !
+
+Ragnarsson: A very interesting choice of companions, and who are the comrades of the tribe \(secondPlayer.name) ? 🔵
+""")
+        print("""
+            🔵 \(secondPlayer.name) Mentor: Our fights are legendary but if you need to introduce us.
+            Formerly known for his valiant fights in the greatest arenas of this world, here is \(secondPlayer.composition[0].alias) the \(secondPlayer.composition[0].name).
+            It scours the world in search of new challengers here is the \(secondPlayer.composition[1].name) that we call \(secondPlayer.composition[1].alias)
+            And the third he is the Danger, his name is \(secondPlayer.composition[2].alias) the \(secondPlayer.composition[2].name) !
             """)
     }
-    
     // Game Mode
     func helpMode() {
         print("""
@@ -115,6 +130,4 @@ class Configuration {
             """)
         configuration.showGeneral()
     }
-    
 }
-
