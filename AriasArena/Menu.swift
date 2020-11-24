@@ -11,7 +11,7 @@ import Foundation
 class Configuration {
     private(set) var firstPlayer = Player()
     private(set) var secondPlayer = Player()
-
+    private var availableCharacters = [Witcher(), Shan(), Mystic(), DemonHunter(), DarthPriest(), Mage(), Nanga(), Scientist()]
     func showGeneral() {
         print("What do you want to do ?"
                 + "\n1. 🕹️ 1 vs 1"
@@ -59,9 +59,14 @@ class Configuration {
         My name is Ragnarsson and I will escort you to the Arena of Arias.
         Oh ! by the way, your color will be red ! 🔴
         """)
-            firstPlayer.name = "Guardians "
+            firstPlayer.name = "Guardians"
         }
-        firstPlayer.createTeam()
+        firstPlayer.createTeam(characters: availableCharacters)
+        firstPlayer.composition.forEach { (character) in
+            if let index = availableCharacters.firstIndex(of: character) {
+                availableCharacters.remove(at: index)
+            }
+        }
         firstPlayer.changeAlias(compo: .firstchoice)
         firstPlayer.changeAlias(compo: .secondchoice)
         firstPlayer.changeAlias(compo: .lastchoice)
@@ -88,7 +93,12 @@ class Configuration {
     """)
             secondPlayer.name = "Saviors"
         }
-        secondPlayer.createTeam()
+        secondPlayer.createTeam(characters: availableCharacters)
+        secondPlayer.composition.forEach { (character) in
+            if let index = availableCharacters.firstIndex(of: character) {
+                availableCharacters.remove(at: index)
+            }
+        }
         secondPlayer.changeAlias(compo: .firstchoice)
         secondPlayer.changeAlias(compo: .secondchoice)
         secondPlayer.changeAlias(compo: .lastchoice)
