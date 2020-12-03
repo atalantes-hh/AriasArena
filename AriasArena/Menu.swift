@@ -110,21 +110,21 @@ Now that the introductions are made, let's see who are your companions
 of fortune from the \(firstPlayer.name) tribe. 🔴
 """)
         print("""
-            🔴 \(firstPlayer.name) Mentor: I will introducing here are my tree honourable companions.
-            I present to you the famous \(firstPlayer.composition[0].alias), \(firstPlayer.composition[0].name) of his state.
-            My second ally is a famous \(firstPlayer.composition[1].name) better known is the name of \(firstPlayer.composition[1].alias)
-            Concerning the last one, He's \(firstPlayer.composition[2].alias) the \(firstPlayer.composition[2].name)
-            """)
+🔴 \(firstPlayer.name) Mentor: I will introducing here are my tree honourable companions.
+I present to you the famous \(firstPlayer.composition[0].alias), \(firstPlayer.composition[0].name) of his state.
+My second ally is a famous \(firstPlayer.composition[1].name) better known is the name of \(firstPlayer.composition[1].alias)
+Concerning the last one, He's \(firstPlayer.composition[2].alias) the \(firstPlayer.composition[2].name)
+""")
         print("""
 
 Ragnarsson: A very interesting choice of companions, and who are the comrades of the tribe \(secondPlayer.name) ? 🔵
 """)
         print("""
-            🔵 \(secondPlayer.name) Mentor: Our fights are legendary but if you need to introduce us.
-            Formerly known for his valiant fights in the greatest arenas of this world, here is \(secondPlayer.composition[0].alias) the \(secondPlayer.composition[0].name).
-            It scours the world in search of new challengers here is the \(secondPlayer.composition[1].name) that we call \(secondPlayer.composition[1].alias)
-            And the third he is the Danger, his name is \(secondPlayer.composition[2].alias) the \(secondPlayer.composition[2].name) !
-            """)
+🔵 \(secondPlayer.name) Mentor: Our fights are legendary but if you need to introduce us.
+Formerly known for his valiant fights in the greatest arenas of this world, here is \(secondPlayer.composition[0].alias) the \(secondPlayer.composition[0].name).
+It scours the world in search of new challengers here is the \(secondPlayer.composition[1].name) that we call \(secondPlayer.composition[1].alias)
+And the third he is the Danger, his name is \(secondPlayer.composition[2].alias) the \(secondPlayer.composition[2].name) !
+""")
     }
     // Game Mode
     func helpMode() {
@@ -133,6 +133,11 @@ Ragnarsson: A very interesting choice of companions, and who are the comrades of
             At the beginning of the game each team leader chooses the name of his tribe and the members of his tribe.
             The first team that sees its 3 members reach 0 health points loses the fight.
 
+            """)
+        print("""
+            First you choose your members.
+            Then their names, if you have no idea a default name is assigned by pressing Enter ⌨️.
+            And finally, their weapon in those available !
             """)
         print("""
             Now let's go to the fight

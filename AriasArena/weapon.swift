@@ -18,12 +18,6 @@ class Weapon {
         self.damage = damage
         self.care = care
     }
-    func attack () {
-        print("Make \(damage) points damages")
-    }
-    func healing () {
-        print("Healing for \(care) points")
-    }
 }
 
 // Stick
@@ -36,14 +30,13 @@ class Stick: Weapon {
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
-
 // Crossbow
 class Crossbow: Weapon {
     init() {
         let name = "Tsangra"
         let type = "Crossbow"
         let damage = 115
-        let care = 0
+        let care = 80
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
@@ -54,7 +47,7 @@ class Axe: Weapon {
         let name = "Bardiche"
         let type = "Axe"
         let damage = 125
-        let care = 0
+        let care = 90
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
@@ -76,7 +69,7 @@ class Pistols: Weapon {
         let name = "Higgins"
         let type = "Pistol"
         let damage = 110
-        let care = 0
+        let care = 75
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
@@ -98,7 +91,7 @@ class Sword: Weapon {
         let name = "Damo"
         let type = "Sword"
         let damage = 120
-        let care = 0
+        let care = 80
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
@@ -109,7 +102,23 @@ class Hammer: Weapon {
         let name = "Mallet"
         let type = "Hammer"
         let damage = 130
-        let care = 0
+        let care = 95
         super.init(name: name, type: type, damage: damage, care: care)
+    }
+}
+
+func dice(character: Character) {
+    let rollingDice = Int.random(in: 0...100)
+    if rollingDice == 100 {
+        print("\(rollingDice) perfect")
+        // Best weapon in game
+    } else if rollingDice >= 75 && rollingDice < 100 {
+        print("\(rollingDice) good")
+        // Enhanced Weapon
+    } else if rollingDice <= 30 {
+        print("\(rollingDice) bad")
+        // Children Toy
+    } else {
+        // Continue game without changes
     }
 }
