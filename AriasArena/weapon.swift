@@ -122,3 +122,16 @@ func dice(character: Character) {
         // Continue game without changes
     }
 }
+
+func chest() {
+//    let bestWeapon = classe de Weapon fille []
+//    let boostWeapon =  classe de Weapon fille []
+//    let kidWeapon = classe de Weapon fille []
+//    if Character is Mage {
+//        weaponType in les 3 tableaux
+//    arc4random(tu tableau)
+//    let newweapon = result arc4random
+//    print("detail new weapon)
+//     newweapon = character.weapon
+//    }
+}

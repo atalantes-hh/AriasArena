@@ -26,11 +26,10 @@ class Game {
             } else if round % 2 == 1 {
                 print("🔵 \(player2.name) it's your turn")
                 player2.fight(target: player1)
-            } else if firstTeamLoose == true || secondTeamLoose == true {
-                endGame()
             }
             round += 1
         }
+        endGame()
     }
     
     func endGame() {

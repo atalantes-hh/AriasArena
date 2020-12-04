@@ -52,139 +52,13 @@ Each one has its own specificities ▫️ Life and 🔹 usable weapons.
                 👍 A \(chooseACharacter.name) join \(name) tribe !
 
                 """)
+                chooseACharacter.changeAlias()
                 composition.append(chooseACharacter)
                 availableCharacters.remove(at: choice)
             }
         }
     }
-    
-    enum ChoiceCharacter {
-        case firstchoice
-        case secondchoice
-        case lastchoice
-    }
-    
-    func changeAlias(compo: ChoiceCharacter) {
-        switch compo {
-        case .firstchoice:
-            print("Choose a name for your \(composition[0].name) ✍️")
-            if let newAlias = readLine() {
-                if Player.allAlias.contains(newAlias) {
-                    Player.allAlias.append(newAlias)
-                    print("""
-                        ⚠️ Sorry but this person has already been introduced !
 
-                        """)
-                    Player.allAlias.removeLast()
-                    changeAlias(compo: .firstchoice)
-                } else if newAlias.isEmpty {
-                    Player.allAlias.append(composition[0].alias)
-                    print("It's a \(composition[0].name) call \(composition[0].alias)")
-                    witchWeapon(compo: .firstchoice)
-                } else {
-                    Player.allAlias.append(newAlias)
-                    print("It's a \(composition[0].name) call \(newAlias)")
-                    composition[0].alias = newAlias
-                    witchWeapon(compo: .firstchoice)
-                }
-            }
-        case .secondchoice:
-            print("Choose a name for your \(composition[1].name) ✍️")
-            if let newAlias = readLine() {
-                if Player.allAlias.contains(newAlias) {
-                    Player.allAlias.append(newAlias)
-                    print("""
-                        ⚠️ Sorry but this person has already been introduced !
-                        """)
-                    Player.allAlias.removeLast()
-                    changeAlias(compo: .secondchoice)
-                } else if newAlias.isEmpty {
-                    Player.allAlias.append(composition[1].alias)
-                    print("It's a \(composition[1].name) call \(composition[1].alias)")
-                    witchWeapon(compo: .secondchoice)
-                } else {
-                    Player.allAlias.append(newAlias)
-                    print("It's a \(composition[1].name) call \(newAlias)")
-                    composition[1].alias = newAlias
-                    witchWeapon(compo: .secondchoice)
-                }
-            }
-        case .lastchoice:
-            print("Choose a name for your \(composition[2].name) ✍️")
-            if let newAlias = readLine() {
-                if Player.allAlias.contains(newAlias) {
-                    Player.allAlias.append(newAlias)
-                    print("""
-                        ⚠️ Sorry but this person has already been introduced !
-
-                        """)
-                    Player.allAlias.removeLast()
-                    changeAlias(compo: .lastchoice)
-                } else if newAlias.isEmpty {
-                    Player.allAlias.append(composition[2].alias)
-                    print("It's a \(composition[2].name) call \(composition[2].alias)")
-                    witchWeapon(compo: .lastchoice)
-                } else {
-                    Player.allAlias.append(newAlias)
-                    print("It's a \(composition[2].name) call \(newAlias)")
-                    composition[2].alias = newAlias
-                    witchWeapon(compo: .lastchoice)
-                }
-            }
-        }
-    }
-    
-    func witchWeapon(compo: ChoiceCharacter) {
-        switch compo {
-        case .firstchoice:
-            print("Witch weapon your \(composition[0].name) will use for this adventure ?")
-            for (index, selectAWeapon) in composition[0].weaponType.enumerated() {
-                if composition[0].canHeal {
-                    print("\(index) 🔸 The \(selectAWeapon.type) > Damage: \(selectAWeapon.damage) Pts > Care: \(selectAWeapon.care) Pts")
-                } else {
-                    print("\(index) 🔸 The \(selectAWeapon.type) > Damage: \(selectAWeapon.damage) ")
-                }
-            }
-            if let value = readLine(), let choice = Int(value), choice <= composition[0].weaponType.count - 1 {
-                let choosenWeapon = composition[0].weaponType[choice]
-                print("You choose The \(choosenWeapon.type) for \(composition[0].alias)")
-                composition[0].weapon = choosenWeapon
-            } else {
-                witchWeapon(compo: .firstchoice)
-            }
-        case .secondchoice:
-            print("Witch weapon your \(composition[1].name) will use for this adventure ?")
-            for (index, selectAWeapon) in composition[1].weaponType.enumerated() {
-                if composition[1].canHeal {
-                    print("\(index) 🔸 The \(selectAWeapon.type) > Damage: \(selectAWeapon.damage) Pts > Care: \(selectAWeapon.care) Pts")
-                } else {
-                    print("\(index) 🔸 The \(selectAWeapon.type) > Damage: \(selectAWeapon.damage) ")
-                }            }
-            if let value = readLine(), let choice = Int(value), choice <= composition[1].weaponType.count - 1 {
-                let choosenWeapon = composition[1].weaponType[choice]
-                print("You choose The \(choosenWeapon.type) for \(composition[1].alias)")
-                composition[1].weapon = choosenWeapon
-            } else {
-                witchWeapon(compo: .secondchoice)
-            }
-        case.lastchoice:
-            print("Witch weapon your \(composition[2].name) will use for this adventure ?")
-            for (index, selectAWeapon) in composition[2].weaponType.enumerated() {
-                if composition[2].canHeal {
-                    print("\(index) 🔸 The \(selectAWeapon.type) > Damage: \(selectAWeapon.damage) Pts > Care: \(selectAWeapon.care) Pts")
-                } else {
-                    print("\(index) 🔸 The \(selectAWeapon.type) > Damage: \(selectAWeapon.damage) ")
-                }            }
-            if let value = readLine(), let choice = Int(value), choice <= composition[2].weaponType.count - 1 {
-                let choosenWeapon = composition[2].weaponType[choice]
-                print("You choose The \(choosenWeapon.type) for \(composition[2].alias)")
-                composition[2].weapon = choosenWeapon
-            } else {
-                witchWeapon(compo: .lastchoice)
-            }
-        }
-    }
-    
     func selectedCharacter(target: Player) -> Character {
         print("❗ \(name) you should select a companion ❗")
         for (index, character) in composition.enumerated() {
@@ -206,7 +80,7 @@ Each one has its own specificities ▫️ Life and 🔹 usable weapons.
             return selectedCharacter(target: target)
         }
     }
-    
+
     func fight(target: Player) {
         let currentPlayer = selectedCharacter(target: target)
         if currentPlayer.canHeal == true {
@@ -281,7 +155,6 @@ Select your target
     
     func hasLoose() -> Bool {
         if composition[0].isDead() && composition[1].isDead() && composition[2].isDead() {
-            game.endGame()
             return true
         } else {
             return false

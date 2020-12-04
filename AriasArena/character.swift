@@ -12,6 +12,7 @@ class Character: Equatable {
     static func == (lhs: Character, rhs: Character) -> Bool {
         lhs.name == rhs.name
     }
+    
     let name: String
     var alias: String
     var abilities: String
@@ -19,6 +20,7 @@ class Character: Equatable {
     let weaponType: [Weapon]
     var weapon: Weapon
     var canHeal: Bool
+    
     init(name: String, alias: String, abilities: String, life: Int, weaponType: [Weapon], weapon: Weapon, canHeal: Bool) {
         self.name = name
         self.alias = alias
@@ -29,7 +31,48 @@ class Character: Equatable {
         self.canHeal = canHeal
     }
     
-    func attack (target: Character, weapon: Weapon) {
+    func changeAlias() {
+        print("Choose a name for your \(self.name) ✍️")
+        if let newAlias = readLine() {
+            if Player.allAlias.contains(newAlias) {
+                Player.allAlias.append(newAlias)
+                print("""
+                        ⚠️ Sorry but this person has already been introduced !
+
+                        """)
+                Player.allAlias.removeLast()
+            } else if newAlias.isEmpty {
+                Player.allAlias.append(alias)
+                print("It's a \(name) call \(alias)")
+                witchWeapon()
+            } else {
+                Player.allAlias.append(newAlias)
+                print("It's a \(name) call \(newAlias)")
+                alias = newAlias
+                witchWeapon()
+            }
+        }
+    }
+    
+    func witchWeapon() {
+        print("Witch weapon your \(name) will use for this adventure ?")
+        for (index, selectAWeapon) in weaponType.enumerated() {
+            if canHeal {
+print("\(index) 🔸 The \(selectAWeapon.type) > Damage: \(selectAWeapon.damage) Pts > Care: \(selectAWeapon.care) Pts")
+            } else {
+                print("\(index) 🔸 The \(selectAWeapon.type) > Damage: \(selectAWeapon.damage) ")
+            }
+        }
+        if let value = readLine(), let choice = Int(value), choice <= weaponType.count - 1 {
+            let choosenWeapon = weaponType[choice]
+            print("You choose The \(choosenWeapon.type) for \(alias)")
+            weapon = choosenWeapon
+        } else {
+            witchWeapon()
+        }
+    }
+    
+    func attack(target: Character, weapon: Weapon) {
         target.life -= weapon.damage
         print("🤺 The \(self.name) made \(weapon.damage) points of damages to \(target.name)")
         if isDead() {
@@ -37,7 +80,7 @@ class Character: Equatable {
         }
     }
     
-    func healing (partner: Character, target: Character, weapon: Weapon) {
+    func healing(partner: Character, target: Character, weapon: Weapon) {
         partner.life += weapon.care
         print("💊 \(partner.name) healed \(target.name) and this one took back \(weapon.care) points of life")
     }

@@ -67,9 +67,6 @@ class Configuration {
                 availableCharacters.remove(at: index)
             }
         }
-        firstPlayer.changeAlias(compo: .firstchoice)
-        firstPlayer.changeAlias(compo: .secondchoice)
-        firstPlayer.changeAlias(compo: .lastchoice)
     }
     // Func Intro Team Player 2
     func configureSecondPlayer() {
@@ -99,9 +96,6 @@ class Configuration {
                 availableCharacters.remove(at: index)
             }
         }
-        secondPlayer.changeAlias(compo: .firstchoice)
-        secondPlayer.changeAlias(compo: .secondchoice)
-        secondPlayer.changeAlias(compo: .lastchoice)
     }
     // Function Build Teams
     func teamBuild() {

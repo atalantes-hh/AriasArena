@@ -1,0 +1,6 @@
+# Find all the available rules by running:
+# swiftlint rules
+# We try to follow as much as possible those rules https://google.github.io/swift/
+
+disabled_rules: # rule identifiers to exclude from running
+  - trailing_whitespace # with bad xcode conf, it generates whitespace in every new lines
