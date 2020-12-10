@@ -1,5 +1,5 @@
 //
-//  Menu.swift
+//  Configuration.swift
 //  AriasArena
 //
 //  Created by Johann Ulma on 28/10/2020.
@@ -11,7 +11,9 @@ import Foundation
 class Configuration {
     private(set) var firstPlayer = Player()
     private(set) var secondPlayer = Player()
-    private var availableCharacters = [Witcher(), Shan(), Mystic(), DemonHunter(), DarthPriest(), Mage(), Nanga(), Scientist()]
+    private var availableCharacters =
+        [Witcher(), Shan(), Mystic(), DemonHunter(), DarthPriest(), Mage(), Nanga(), Scientist()]
+    // Function General Menu
     func showGeneral() {
         print("What do you want to do ?"
                 + "\n1. 🕹️ 1 vs 1"
@@ -38,7 +40,7 @@ class Configuration {
             }
         }
     }
-    // Func Intro Team Player1
+    // Func Introduction for Team Player1
     func configureFirstPlayer() {
         print("""
 
@@ -68,7 +70,7 @@ class Configuration {
             }
         }
     }
-    // Func Intro Team Player 2
+    // Func Introduction for Team Player2
     func configureSecondPlayer() {
         print("""
 
@@ -97,7 +99,7 @@ class Configuration {
             }
         }
     }
-    // Function Build Teams
+    // Function Build Teams Narration
     func teamBuild() {
         print("""
 Now that the introductions are made, let's see who are your companions
@@ -106,7 +108,10 @@ of fortune from the \(firstPlayer.name) tribe. 🔴
         print("""
 🔴 \(firstPlayer.name) Mentor: I will introducing here are my tree honourable companions.
 I present to you the famous \(firstPlayer.composition[0].alias), \(firstPlayer.composition[0].name) of his state.
-My second ally is a famous \(firstPlayer.composition[1].name) better known is the name of \(firstPlayer.composition[1].alias)
+
+My second ally is a famous \(firstPlayer.composition[1].name),
+better known is the name of \(firstPlayer.composition[1].alias)
+
 Concerning the last one, He's \(firstPlayer.composition[2].alias) the \(firstPlayer.composition[2].name)
 """)
         print("""
@@ -115,9 +120,13 @@ Ragnarsson: A very interesting choice of companions, and who are the comrades of
 """)
         print("""
 🔵 \(secondPlayer.name) Mentor: Our fights are legendary but if you need to introduce us.
-Formerly known for his valiant fights in the greatest arenas of this world, here is \(secondPlayer.composition[0].alias) the \(secondPlayer.composition[0].name).
-It scours the world in search of new challengers here is the \(secondPlayer.composition[1].name) that we call \(secondPlayer.composition[1].alias)
-And the third he is the Danger, his name is \(secondPlayer.composition[2].alias) the \(secondPlayer.composition[2].name) !
+Formerly known for his valiant fights in the greatest arenas of this world,
+here is \(secondPlayer.composition[0].alias) the \(secondPlayer.composition[0].name).
+
+It scours the world in search of new challengers here is the \(secondPlayer.composition[1].name)
+that we call \(secondPlayer.composition[1].alias)
+
+And the last he's the Danger, his name is \(secondPlayer.composition[2].alias) the \(secondPlayer.composition[2].name) !
 """)
     }
     // Game Mode

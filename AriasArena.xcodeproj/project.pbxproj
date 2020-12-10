@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E5BA0A82549A88000822CE5 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BA0A72549A88000822CE5 /* Menu.swift */; };
+		1E22B991257A86DF00FB5858 /* Chest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E22B990257A86DF00FB5858 /* Chest.swift */; };
+		1E5BA0A82549A88000822CE5 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BA0A72549A88000822CE5 /* Configuration.swift */; };
 		1E5BA0AC2549A97100822CE5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BA0AB2549A97100822CE5 /* main.swift */; };
 		1E5BA0B32549A99A00822CE5 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BA0B22549A99A00822CE5 /* Character.swift */; };
 		1E5BA0B62549A9A000822CE5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BA0B52549A9A000822CE5 /* Game.swift */; };
@@ -28,7 +29,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1E5BA0A72549A88000822CE5 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		1E22B990257A86DF00FB5858 /* Chest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chest.swift; sourceTree = "<group>"; };
+		1E5BA0A72549A88000822CE5 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		1E5BA0AB2549A97100822CE5 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1E5BA0B22549A99A00822CE5 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		1E5BA0B52549A9A000822CE5 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -68,11 +70,12 @@
 			isa = PBXGroup;
 			children = (
 				1E5BA0AB2549A97100822CE5 /* main.swift */,
-				1E5BA0A72549A88000822CE5 /* Menu.swift */,
+				1E5BA0A72549A88000822CE5 /* Configuration.swift */,
 				1E5BA0B52549A9A000822CE5 /* Game.swift */,
 				1E5BA0B22549A99A00822CE5 /* Character.swift */,
-				1E5BA0B82549A9A700822CE5 /* Player.swift */,
 				1E5BA0BB2549A9AE00822CE5 /* Weapon.swift */,
+				1E22B990257A86DF00FB5858 /* Chest.swift */,
+				1E5BA0B82549A9A700822CE5 /* Player.swift */,
 			);
 			path = AriasArena;
 			sourceTree = "<group>";
@@ -156,10 +159,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E5BA0B32549A99A00822CE5 /* Character.swift in Sources */,
-				1E5BA0A82549A88000822CE5 /* Menu.swift in Sources */,
+				1E5BA0A82549A88000822CE5 /* Configuration.swift in Sources */,
 				1E5BA0AC2549A97100822CE5 /* main.swift in Sources */,
 				1E5BA0B92549A9A700822CE5 /* Player.swift in Sources */,
 				1E5BA0B62549A9A000822CE5 /* Game.swift in Sources */,
+				1E22B991257A86DF00FB5858 /* Chest.swift in Sources */,
 				1E5BA0BC2549A9AE00822CE5 /* Weapon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

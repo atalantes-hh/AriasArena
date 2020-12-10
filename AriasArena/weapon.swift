@@ -6,12 +6,12 @@
 //
 
 import Foundation
-
+// Class to define Weapon models
 class Weapon {
-    let name: String
-    let type: String
-    let damage: Int
-    let care: Int
+    var name: String
+    var type: String
+    var damage: Int
+    var care: Int
     init(name: String, type: String, damage: Int, care: Int) {
         self.name = name
         self.type = type
@@ -20,7 +20,7 @@ class Weapon {
     }
 }
 
-// Stick
+// Starting game weapon : Stick
 class Stick: Weapon {
     init() {
         let name = "Shepherd's crook"
@@ -30,7 +30,27 @@ class Stick: Weapon {
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
-// Crossbow
+// When character loot a Best Stick
+class Gridarvol: Stick {
+    override init() {
+        super.init()
+        self.name = "Gridarvol"
+        self.type = "Stick"
+        self.damage = 110
+        self.care = 80
+    }
+}
+// When character loot a Bad Stick
+class PieceOfWood: Stick {
+    override init() {
+        super.init()
+        self.name = "Piece of Wood"
+        self.type = "Stick"
+        self.damage = 45
+        self.care = 30
+    }
+}
+// Starting game weapon : Crossbow
 class Crossbow: Weapon {
     init() {
         let name = "Tsangra"
@@ -40,8 +60,27 @@ class Crossbow: Weapon {
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
-
-// Axe
+// When character loot a Best Crossbow
+class Chanon: Crossbow {
+    override init() {
+        super.init()
+        self.name = "Chanon Bolter"
+        self.type = "Crossbow"
+        self.damage = 130
+        self.care = 90
+    }
+}
+// When character loot a Bad Crossbow
+class Medieval: Crossbow {
+    override init() {
+        super.init()
+        self.name = "Medieval Crossbow"
+        self.type = "Crossbow"
+        self.damage = 55
+        self.care = 40
+    }
+}
+// Starting game weapon : Axe
 class Axe: Weapon {
     init() {
         let name = "Bardiche"
@@ -51,8 +90,28 @@ class Axe: Weapon {
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
+// When character loot a Best Axe
+class Shadowmourne: Axe {
+    override init() {
+        super.init()
+        self.name = "Shadowmourne"
+        self.type = "Axe"
+        self.damage = 55
+        self.care = 40
+    }
+}
+// When character loot a Bad Axe
+class Woodsman: Axe {
+    override init() {
+        super.init()
+        self.name = "Woodsman Axe"
+        self.type = "Axe"
+        self.damage = 55
+        self.care = 40
+    }
+}
 
-// Dagger
+// Starting game weapon : Dagger
 class Dagger: Weapon {
     init() {
         let name = "Medieval dagger"
@@ -62,8 +121,27 @@ class Dagger: Weapon {
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
-
-// Pistol
+// When character loot a Best Dagger
+class FangsFather: Dagger {
+    override init() {
+        super.init()
+        self.name = "Fangs of the Father"
+        self.type = "Dagger"
+        self.damage = 55
+        self.care = 40
+    }
+}
+// When character loot a Bad Dagger
+class PlasticDagger: Dagger {
+    override init() {
+        super.init()
+        self.name = "Plastic Dagger"
+        self.type = "Dagger"
+        self.damage = 55
+        self.care = 40
+    }
+}
+// Starting game weapon : Pistols
 class Pistols: Weapon {
     init() {
         let name = "Higgins"
@@ -73,8 +151,27 @@ class Pistols: Weapon {
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
-
-// Bow
+// When character loot a Best Pistols
+class BonnieClyde: Pistols {
+    override init() {
+        super.init()
+        self.name = "Bonnie & Clyde"
+        self.type = "Pistol"
+        self.damage = 55
+        self.care = 40
+    }
+}
+// When character loot a Bad Pistols
+class WaterPistols: Pistols {
+    override init() {
+        super.init()
+        self.name = "Water Pistols"
+        self.type = "Pistol"
+        self.damage = 55
+        self.care = 40
+    }
+}
+// Starting game weapon : Bow
 class Bow: Weapon {
     init() {
         let name = "Meerk"
@@ -84,8 +181,27 @@ class Bow: Weapon {
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
-
-// Sword
+// When character loot a Best Bow
+class Artemis: Bow {
+    override init() {
+        super.init()
+        self.name = "Artemis Bow"
+        self.type = "Bow"
+        self.damage = 55
+        self.care = 40
+    }
+}
+// When character loot a Bad Bow
+class PracticeBow: Bow {
+    override init() {
+        super.init()
+        self.name = "Practice Bow"
+        self.type = "Bow"
+        self.damage = 55
+        self.care = 40
+    }
+}
+// Starting game weapon : Sword
 class Sword: Weapon {
     init() {
         let name = "Damo"
@@ -95,43 +211,53 @@ class Sword: Weapon {
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
-
-// Hammer
+// When character loot a Best Sword
+class Anduril: Sword {
+    override init() {
+        super.init()
+        self.name = "Anduril"
+        self.type = "Sword"
+        self.damage = 55
+        self.care = 40
+    }
+}
+// When character loot a Bad Sword
+class Penknife: Sword {
+    override init() {
+        super.init()
+        self.name = "Penknife"
+        self.type = "Sword"
+        self.damage = 55
+        self.care = 40
+    }
+}
+// Starting game weapon : Hammer
 class Hammer: Weapon {
     init() {
-        let name = "Mallet"
+        let name = "Warhammer"
         let type = "Hammer"
         let damage = 130
         let care = 95
         super.init(name: name, type: type, damage: damage, care: care)
     }
 }
-
-func dice(character: Character) {
-    let rollingDice = Int.random(in: 0...100)
-    if rollingDice == 100 {
-        print("\(rollingDice) perfect")
-        // Best weapon in game
-    } else if rollingDice >= 75 && rollingDice < 100 {
-        print("\(rollingDice) good")
-        // Enhanced Weapon
-    } else if rollingDice <= 30 {
-        print("\(rollingDice) bad")
-        // Children Toy
-    } else {
-        // Continue game without changes
+// When character loot a Best Hammer
+class Mjollnir: Hammer {
+    override init() {
+        super.init()
+        self.name = "Mjöllnir"
+        self.type = "Hammer"
+        self.damage = 55
+        self.care = 40
     }
 }
-
-func chest() {
-//    let bestWeapon = classe de Weapon fille []
-//    let boostWeapon =  classe de Weapon fille []
-//    let kidWeapon = classe de Weapon fille []
-//    if Character is Mage {
-//        weaponType in les 3 tableaux
-//    arc4random(tu tableau)
-//    let newweapon = result arc4random
-//    print("detail new weapon)
-//     newweapon = character.weapon
-//    }
+// When character loot a Bad Hammer
+class Mallet: Hammer {
+    override init() {
+        super.init()
+        self.name = "Mallet"
+        self.type = "Hammer"
+        self.damage = 55
+        self.care = 40
+    }
 }

@@ -7,12 +7,13 @@
 
 import Foundation
 
-// Class Player
+// Class Player definition
 class Player {
     var name: String = ""
     static var allAlias: [String] = ["Ragnarsson"]
     var composition: [Character] = [Character]()
     let limitCharacter = 3
+    // Choice characters for player team
     func createTeam(characters: [Character]) {
         var availableCharacters = characters
         print("""
@@ -58,14 +59,30 @@ Each one has its own specificities ▫️ Life and 🔹 usable weapons.
             }
         }
     }
+    /*
+    func teamLife(active: Player) {
 
+        for (_, character) in composition.enumerated() {
+            let full = 1000
+            let actual = character.life
+            var percent = 100*full/actual
+            print("\(character.name) named \(character.alias) as \(character.life) HP \(percent)")
+
+        }
+
+        // 🌕🌖🌗🌘🌑🌒🌓🌔
+    }
+    **/
+    // To select a Character during the Battle
     func selectedCharacter(target: Player) -> Character {
         print("❗ \(name) you should select a companion ❗")
         for (index, character) in composition.enumerated() {
             if character.canAttack() {
                 print("\(index) 🌀 \(character.name) named \(character.alias) as \(character.life) HP")
-            } else if character.isDead() != hasLoose() {
-                print("RIP 🌀 \(character.name) named \(character.alias) is Dead 🗿 ")
+            } else if character.isDead() {
+                print("""
+RIP 🌀 \(character.name) named \(character.alias) is Dead 🗿 • ❌ This one can't attack anymore
+""")
             }
         }
         if let value = readLine(), let choice = Int(value), choice <= composition.count - 1 {
@@ -80,7 +97,7 @@ Each one has its own specificities ▫️ Life and 🔹 usable weapons.
             return selectedCharacter(target: target)
         }
     }
-
+    // Define the Fight action : select a character / Choice an action / Choice a target
     func fight(target: Player) {
         let currentPlayer = selectedCharacter(target: target)
         if currentPlayer.canHeal == true {
@@ -93,9 +110,11 @@ Each one has its own specificities ▫️ Life and 🔹 usable weapons.
             if let options = readLine() {
                 switch options {
                 case "1":
+                    game.chest.loot(current: currentPlayer)
                     let currentTarget = selectedTarget(target: target)
                     currentPlayer.attack(target: currentTarget, weapon: currentPlayer.weapon)
                 case "2":
+                    game.chest.loot(current: currentPlayer)
                     let currentTarget = selectedTarget(target: self)
                     currentPlayer.healing(partner: currentPlayer, target: currentTarget, weapon: currentPlayer.weapon)
                 default:
@@ -107,17 +126,19 @@ Each one has its own specificities ▫️ Life and 🔹 usable weapons.
                 }
             }
         } else {
+            game.chest.loot(current: currentPlayer)
             let currentTarget = selectedTarget(target: target)
             currentPlayer.attack(target: currentTarget, weapon: currentPlayer.weapon)
         }
     }
-    
+    // To select a Target during the Battle
     func selectedTarget(target: Player) -> Character {
+//        teamLife(active: target)
         print("""
 Select your target
-1 💠 \(target.composition[0].name) as \(target.composition[0].life) HP is Alive: \(target.composition[0].canAttack())
-2 💠 \(target.composition[1].name) as \(target.composition[1].life) HP is Alive: \(target.composition[1].canAttack())
-3 💠 \(target.composition[2].name) as \(target.composition[2].life) HP is Alive: \(target.composition[2].canAttack())
+1 💠 \(target.composition[0].name) is Alive: \(target.composition[0].canAttack())
+2 💠 \(target.composition[1].name) is Alive: \(target.composition[1].canAttack())
+3 💠 \(target.composition[2].name) is Alive: \(target.composition[2].canAttack())
 """)
         if let choice = readLine() {
             switch choice {
@@ -152,7 +173,7 @@ Select your target
         }
         return selectedTarget(target: target)
     }
-    
+    // When a Team Loose : Game is Over
     func hasLoose() -> Bool {
         if composition[0].isDead() && composition[1].isDead() && composition[2].isDead() {
             return true
