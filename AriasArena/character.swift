@@ -16,23 +16,28 @@ class Character: Equatable {
     let name: String
     var alias: String
     var abilities: String
+    var startLife: Int
     var life: Int
-    let weaponType: [Weapon]
+    let weaponGender: [Weapon]
     var weapon: Weapon
     var canHeal: Bool
     
-    init(name: String,
-         alias: String,
-         abilities: String,
-         life: Int,
-         weaponType: [Weapon],
-         weapon: Weapon,
-         canHeal: Bool) {
+    init(
+        name: String,
+        alias: String,
+        abilities: String,
+        startLife: Int,
+        life: Int,
+        weaponGender: [Weapon],
+        weapon: Weapon,
+        canHeal: Bool
+    ) {
         self.name = name
         self.alias = alias
         self.abilities = abilities
+        self.startLife = startLife
         self.life = life
-        self.weaponType = weaponType
+        self.weaponGender = weaponGender
         self.weapon = weapon
         self.canHeal = canHeal
     }
@@ -62,16 +67,16 @@ class Character: Equatable {
     // Function to choice a Weapon before game start after choose a character
     func witchWeapon() {
         print("Witch weapon your \(name) will use for this adventure ?")
-        for (index, selectAWeapon) in weaponType.enumerated() {
+        for (index, selectAWeapon) in weaponGender.enumerated() {
             if canHeal {
-print("\(index) 🔸 The \(selectAWeapon.type) > Damage: \(selectAWeapon.damage) Pts > Care: \(selectAWeapon.care) Pts")
+print("\(index) 🔸 The \(selectAWeapon.gender) > Damage: \(selectAWeapon.damage) Pts > Care: \(selectAWeapon.care) Pts")
             } else {
-                print("\(index) 🔸 The \(selectAWeapon.type) > Damage: \(selectAWeapon.damage) ")
+                print("\(index) 🔸 The \(selectAWeapon.gender) > Damage: \(selectAWeapon.damage) ")
             }
         }
-        if let value = readLine(), let choice = Int(value), choice <= weaponType.count - 1 {
-            let choosenWeapon = weaponType[choice]
-            print("You choose The \(choosenWeapon.type) for \(alias)")
+        if let value = readLine(), let choice = Int(value), choice <= weaponGender.count - 1 {
+            let choosenWeapon = weaponGender[choice]
+            print("You choose The \(choosenWeapon.gender) for \(alias)")
             weapon = choosenWeapon
         } else {
             witchWeapon()
@@ -100,21 +105,24 @@ print("\(index) 🔸 The \(selectAWeapon.type) > Damage: \(selectAWeapon.damage)
         return life <= 0
     }
 }
+
 // Character Witcher : Attack
 class Witcher: Character {
     init() {
         let name = "Witcher"
         let alias = "Gerald"
         let abilities = "🤺 ▫️ Life : 600 HP 🔹 Weapon choice : Sword, Axe"
+        let startLife = 60 //600
         let life = 60 //600
-        let weaponType = [Sword(), Axe()]
+        let weaponGender = [Sword(), Axe()]
         let weapon = Sword()
         let canHeal = false
         super.init(name: name,
                    alias: alias,
                    abilities: abilities,
+                   startLife: startLife,
                    life: life,
-                   weaponType: weaponType,
+                   weaponGender: weaponGender,
                    weapon: weapon,
                    canHeal: canHeal)
     }
@@ -125,15 +133,17 @@ class Shan: Character {
         let name = "Shan"
         let alias = "Naco"
         let abilities = "🤺 or 💊 ▫️ Life : 300 HP 🔹 Weapon choice : Sword, Bow, Hammer"
+        let startLife = 30 //300
         let life = 30 //300
-        let weaponType = [Sword(), Bow(), Hammer()]
+        let weaponGender = [Sword(), Bow(), Hammer()]
         let weapon = Hammer()
         let canHeal = true
         super.init(name: name,
                    alias: alias,
                    abilities: abilities,
+                   startLife: startLife,
                    life: life,
-                   weaponType: weaponType,
+                   weaponGender: weaponGender,
                    weapon: weapon,
                    canHeal: canHeal)
     }
@@ -144,15 +154,17 @@ class Mystic: Character {
         let name = "Mystic"
         let alias = "Raka"
         let abilities = "🤺 or 💊 ▫️ Life : 325 HP 🔹 Weapon choice : Bow, Dagger"
+        let startLife = 32 //325
         let life = 32 //325
-        let weaponType = [Bow(), Dagger()]
+        let weaponGender = [Bow(), Dagger()]
         let weapon = Bow()
         let canHeal = true
         super.init(name: name,
                    alias: alias,
                    abilities: abilities,
+                   startLife: startLife,
                    life: life,
-                   weaponType: weaponType,
+                   weaponGender: weaponGender,
                    weapon: weapon,
                    canHeal: canHeal)
     }
@@ -162,16 +174,18 @@ class DemonHunter: Character {
     init() {
         let name = "Demon Hunter"
         let alias = "Kisa"
-        let abilities = "🤺 ▫️ Life : 450 HP 🔹 Weapon choice : Crossbow, Pistols, Bow"
+        let abilities = "🤺 ▫️ Life : 450 HP 🔹 Weapon choice : Crossbow, Pistol, Bow"
+        let startLife = 45 //450
         let life = 45 //450
-        let weaponType = [Crossbow(), Pistols(), Bow()]
+        let weaponGender = [Crossbow(), Pistol(), Bow()]
         let weapon = Crossbow()
         let canHeal = false
         super.init(name: name,
                    alias: alias,
                    abilities: abilities,
+                   startLife: startLife,
                    life: life,
-                   weaponType: weaponType,
+                   weaponGender: weaponGender,
                    weapon: weapon,
                    canHeal: canHeal)
     }
@@ -182,15 +196,17 @@ class DarthPriest: Character {
         let name = "Darth Priest"
         let alias = "Magthael"
         let abilities = "🤺 or 💊 ▫️ Life : 350 HP 🔹 Weapon choice : Stick, Dagger"
+        let startLife = 35 //350
         let life = 35 //350
-        let weaponType = [Stick(), Dagger()]
+        let weaponGender = [Stick(), Dagger()]
         let weapon = Dagger()
         let canHeal = true
         super.init(name: name,
                    alias: alias,
                    abilities: abilities,
+                   startLife: startLife,
                    life: life,
-                   weaponType: weaponType,
+                   weaponGender: weaponGender,
                    weapon: weapon,
                    canHeal: canHeal)
     }
@@ -201,15 +217,17 @@ class Mage: Character {
         let name = "Mage"
         let alias = "Gandalf"
         let abilities = "🤺 ▫️ Life : 400 HP 🔹 Weapon choice : Stick, Dagger"
+        let startLife = 40 //400
         let life = 40 //400
-        let weaponType = [Stick(), Dagger()]
+        let weaponGender = [Stick(), Dagger()]
         let weapon = Stick()
         let canHeal = false
         super.init(name: name,
                    alias: alias,
                    abilities: abilities,
+                   startLife: startLife,
                    life: life,
-                   weaponType: weaponType,
+                   weaponGender: weaponGender,
                    weapon: weapon,
                    canHeal: canHeal)
     }
@@ -220,15 +238,17 @@ class Nanga: Character {
         let name = "Nanga"
         let alias = "Arthas"
         let abilities = "🤺 ▫️ Life : 600 HP 🔹 Weapon choice : Hammer, Axe, Sword"
+        let startLife = 60 //600
         let life = 60 //600
-        let weaponType = [Hammer(), Axe(), Sword()]
+        let weaponGender = [Hammer(), Axe(), Sword()]
         let weapon = Axe()
         let canHeal = false
         super.init(name: name,
                    alias: alias,
                    abilities: abilities,
+                   startLife: startLife,
                    life: life,
-                   weaponType: weaponType,
+                   weaponGender: weaponGender,
                    weapon: weapon,
                    canHeal: canHeal)
     }
@@ -238,16 +258,18 @@ class Scientist: Character {
     init() {
         let name = "Scientist"
         let alias = "Conor"
-        let abilities = "🤺 or 💊 ▫️ Life : 425 HP 🔹 Weapon choice : Pistols, Bow"
+        let abilities = "🤺 or 💊 ▫️ Life : 425 HP 🔹 Weapon choice : Pistol, Bow"
+        let startLife = 42 //420
         let life = 42 //420
-        let weaponType = [Pistols(), Bow()]
-        let weapon = Pistols()
+        let weaponGender = [Pistol(), Bow()]
+        let weapon = Pistol()
         let canHeal = true
         super.init(name: name,
                    alias: alias,
                    abilities: abilities,
+                   startLife: startLife,
                    life: life,
-                   weaponType: weaponType,
+                   weaponGender: weaponGender,
                    weapon: weapon,
                    canHeal: canHeal)
     }

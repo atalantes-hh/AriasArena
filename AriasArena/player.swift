@@ -13,6 +13,7 @@ class Player {
     static var allAlias: [String] = ["Ragnarsson"]
     var composition: [Character] = [Character]()
     let limitCharacter = 3
+    
     // Choice characters for player team
     func createTeam(characters: [Character]) {
         var availableCharacters = characters
@@ -59,37 +60,33 @@ Each one has its own specificities ▫️ Life and 🔹 usable weapons.
             }
         }
     }
-    /*
-    func teamLife(active: Player) {
-
-        for (_, character) in composition.enumerated() {
-            let full = 1000
-            let actual = character.life
-            var percent = 100*full/actual
-            print("\(character.name) named \(character.alias) as \(character.life) HP \(percent)")
-
-        }
-
-        // 🌕🌖🌗🌘🌑🌒🌓🌔
-    }
-    **/
+    
     // To select a Character during the Battle
     func selectedCharacter(target: Player) -> Character {
-        print("❗ \(name) you should select a companion ❗")
+        print("❕ \(name) you should select a companion ❕")
         for (index, character) in composition.enumerated() {
-            if character.canAttack() {
-                print("\(index) 🌀 \(character.name) named \(character.alias) as \(character.life) HP")
-            } else if character.isDead() {
-                print("""
-RIP 🌀 \(character.name) named \(character.alias) is Dead 🗿 • ❌ This one can't attack anymore
-""")
+            let fullLife = character.startLife
+            let actualLife = character.life
+            let percent = 100 - (((fullLife - actualLife)/fullLife)*100)
+            if percent == 100 {
+                print("\(index) 🌀 \(character.name) named \(character.alias) has \(character.life) HP \(percent) % 🌕 ")
+            } else if percent >= 75 && percent <= 99 {
+                print("\(index) 🌀 \(character.name) named \(character.alias) has \(character.life) HP \(percent) % 🌖")
+            } else if percent >= 50 && percent <= 74 {
+                print("\(index) 🌀 \(character.name) named \(character.alias) has \(character.life) HP \(percent) % 🌗")
+            } else if percent >= 25 && percent <= 49 {
+                print("\(index) 🌀 \(character.name) named \(character.alias) has \(character.life) HP \(percent) % 🌘")
+            } else if percent >= 1 && percent <= 24 {
+                print("\(index) 🌀 \(character.name) named \(character.alias) has \(character.life) HP \(percent) % 🌔")
+            } else {
+                print(" ❌ This one can't attack anymore 🌀 \(character.name) named \(character.alias) is died 🌑")
             }
         }
         if let value = readLine(), let choice = Int(value), choice <= composition.count - 1 {
             let selectACharacter = composition[choice]
             print("🌀 A \(selectACharacter.name) was selected ! \n")
             if selectACharacter.isDead() {
-                print("Hum ! sorry but \(selectACharacter.name) is already dead, you need to choose another ally")
+                print("Hum ! sorry but your \(selectACharacter.name) is already dead, you need to choose another ally")
                 return selectedCharacter(target: target)
             }
             return selectACharacter
@@ -97,6 +94,7 @@ RIP 🌀 \(character.name) named \(character.alias) is Dead 🗿 • ❌ This on
             return selectedCharacter(target: target)
         }
     }
+    
     // Define the Fight action : select a character / Choice an action / Choice a target
     func fight(target: Player) {
         let currentPlayer = selectedCharacter(target: target)
@@ -131,54 +129,63 @@ RIP 🌀 \(character.name) named \(character.alias) is Dead 🗿 • ❌ This on
             currentPlayer.attack(target: currentTarget, weapon: currentPlayer.weapon)
         }
     }
+    
     // To select a Target during the Battle
     func selectedTarget(target: Player) -> Character {
-//        teamLife(active: target)
-        print("""
-Select your target
-1 💠 \(target.composition[0].name) is Alive: \(target.composition[0].canAttack())
-2 💠 \(target.composition[1].name) is Alive: \(target.composition[1].canAttack())
-3 💠 \(target.composition[2].name) is Alive: \(target.composition[2].canAttack())
-""")
-        if let choice = readLine() {
-            switch choice {
-            case "1" :
-                if target.composition[0].isDead() {
-                    print("Hum ! sorry but is already dead, you need to choose another target")
-                    return selectedTarget(target: target)
-                } else {
-                    print("💠 \(target.composition[0].name) is your target \n")
-                    return target.composition[0]
-                }
-            case "2" :
-                if target.composition[1].isDead() {
-                    print("Hum ! sorry but is already dead, you need to choose another target")
-                    return selectedTarget(target: target)
-                } else {
-                    print("💠 \(target.composition[1].name) is your target \n")
-                    return target.composition[1]
-                }
-            case "3" :
-                if target.composition[2].isDead() {
-                    print("Hum ! sorry but is already dead, you need to choose another target")
-                    return selectedTarget(target: target)
-                } else {
-                    print("💠 \(target.composition[2].name) is your target \n")
-                    return target.composition[2]
-                }
-            default :
-                print("You must choose")
-                return selectedTarget(target: target)
+        print("Select your target")
+        for (index, character) in target.composition.enumerated() {
+            if character.canAttack() {
+                print("\(index) 💠 \(character.name) named \(character.alias) has \(character.life) HP" )
+            } else if character.isDead() {
+                print("""
+                🌑 RIP 💠 \(character.name) named \(character.alias) is Dead • ❌ Can't be a target !
+                """)
             }
         }
-        return selectedTarget(target: target)
+        if let value = readLine(), let choice = Int(value), choice <= target.composition.count - 1 {
+            let selectATarget = target.composition[choice]
+            print("💠 A \(selectATarget.name) was selected ! \n")
+            if selectATarget.isDead() {
+                print("Hum ! sorry but is already dead, you need to choose another target")
+                return selectedTarget(target: target)
+            }
+            return selectATarget
+        } else {
+            print("You must choose")
+            return selectedTarget(target: target)
+        }
     }
+    
     // When a Team Loose : Game is Over
     func hasLoose() -> Bool {
         if composition[0].isDead() && composition[1].isDead() && composition[2].isDead() {
             return true
         } else {
             return false
+        }
+    }
+    
+    // Print Stat of First Player
+    func stats() {
+        if self.hasLoose() {
+            print("")
+            print("❕ Looser Team \(name) composition was :")
+        } else {
+            print("")
+            print("🎉 Winner Team \(name) composition was :")
+        }
+        for (index, character) in composition.enumerated() {
+            if character.isDead() {
+                print("""
+\(index) 🧙 : The \(character.name) call \(character.alias) is Dead
+with this \(character.weapon.gender) named \(character.weapon.name)
+""")
+            } else {
+                print("""
+\(index) 🧙 : The \(character.name) call \(character.alias) finish Alive with \(character.life) HP
+and this \(character.weapon.gender) named \(character.weapon.name)
+""")
+            }
         }
     }
 }

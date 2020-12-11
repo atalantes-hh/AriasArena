@@ -40,12 +40,11 @@ class Configuration {
             }
         }
     }
+    
     // Func Introduction for Team Player1
     func configureFirstPlayer() {
-        print("""
-
-        Hello, adventurer, what is the name of your tribe?
-        """)
+        print("")
+        print("Hello, adventurer, what is the name of your tribe?")
         if let tribeNameP1 = readLine(), !tribeNameP1.isEmpty {
             print("""
 
@@ -70,6 +69,7 @@ class Configuration {
             }
         }
     }
+    
     // Func Introduction for Team Player2
     func configureSecondPlayer() {
         print("""
@@ -78,12 +78,18 @@ class Configuration {
                 What's the name of your tribe, already opponents? 🔵
                 """)
         if let tribeNameP2 = readLine(), !tribeNameP2.isEmpty {
-            print("""
+            if tribeNameP2 != firstPlayer.name {
+                print("""
 
-        Yes that's right, the \(tribeNameP2) tribe. 🔵
-        And for you, your color will be blue ! 🔵
-        """)
-            secondPlayer.name = tribeNameP2
+            Yes that's right, the \(tribeNameP2) tribe. 🔵
+            And for you, your color will be blue ! 🔵
+            """)
+                secondPlayer.name = tribeNameP2
+            } else {
+                print("You cannot have the same name as your opponent of the day !")
+                print("So let's try again.")
+                configureSecondPlayer()
+            }
         } else {
             print("""
 
@@ -99,6 +105,7 @@ class Configuration {
             }
         }
     }
+    
     // Function Build Teams Narration
     func teamBuild() {
         print("""
@@ -129,6 +136,7 @@ that we call \(secondPlayer.composition[1].alias)
 And the last he's the Danger, his name is \(secondPlayer.composition[2].alias) the \(secondPlayer.composition[2].name) !
 """)
     }
+    
     // Game Mode
     func helpMode() {
         print("""
