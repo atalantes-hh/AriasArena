@@ -34,62 +34,7 @@ class Game {
         }
         endGame()
     }
-    // Print Stat of First Player
-    func firstTeamStat() {
-        if player1.hasLoose() {
-            print("""
 
-🔴 Looser Team \(player1.name) composition was :
-""")
-        } else {
-            print("""
-
-🔴 Winner Team \(player1.name) composition was :
-""")
-        }
-        for (index, character) in player1.composition.enumerated() {
-            if character.canAttack() {
-                print("""
-\(index) 🧙 : The \(character.name) call \(character.alias) finish Alive with \(character.life) HP
-and this \(character.weapon.type) named \(character.weapon.name)
-""")
-            } else if character.isDead() {
-                print("""
-\(index) 🧙 : The \(character.name) call \(character.alias) is Dead
-with this \(character.weapon.type) named \(character.weapon.name)
-""")
-            }
-        }
-    }
-    // Print Stat of Second Player
-    func secondTeamStat() {
-        if player2.hasLoose() {
-            print("""
-
-🔵 Looser Team \(player2.name) composition was :
-""")
-            
-        } else {
-            print("""
-
-🔵 Winner Team \(player2.name) composition was :
-""")
-            
-        }
-        for (index, character) in player2.composition.enumerated() {
-            if character.canAttack() {
-                print("""
-\(index) 🧙 : The \(character.name) call \(character.alias) finish Alive with \(character.life) HP
-and this \(character.weapon.type) named \(character.weapon.name)
-""")
-            } else if character.isDead() {
-                print("""
-\(index) 🧙 : The \(character.name) call \(character.alias) is Dead
-with this \(character.weapon.type) named \(character.weapon.name)
-""")
-            }
-        }
-    }
     // Finish the Game
     func endGame() {
         print("🎮 End Game")
@@ -99,16 +44,14 @@ with this \(character.weapon.type) named \(character.weapon.name)
                 Party is over after \(round) round.
                 The winner team is \(player2.name) tribe !
                 """)
-            secondTeamStat()
-            firstTeamStat()
         } else {
             print("""
                 The \(player2.name) lost the battle.
                 Party is over after \(round) round.
                 The winner team is \(player1.name) tribe !
                 """)
-            firstTeamStat()
-            secondTeamStat()
         }
+        player1.stats()
+        player2.stats()
     }
 }

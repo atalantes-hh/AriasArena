@@ -9,12 +9,12 @@ import Foundation
 // Class to define Weapon models
 class Weapon {
     var name: String
-    var type: String
+    var gender: String
     var damage: Int
     var care: Int
-    init(name: String, type: String, damage: Int, care: Int) {
+    init(name: String, gender: String, damage: Int, care: Int) {
         self.name = name
-        self.type = type
+        self.gender = gender
         self.damage = damage
         self.care = care
     }
@@ -24,10 +24,10 @@ class Weapon {
 class Stick: Weapon {
     init() {
         let name = "Shepherd's crook"
-        let type = "Stick"
+        let gender = "Stick"
         let damage = 90
         let care = 60
-        super.init(name: name, type: type, damage: damage, care: care)
+        super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
 // When character loot a Best Stick
@@ -35,7 +35,7 @@ class Gridarvol: Stick {
     override init() {
         super.init()
         self.name = "Gridarvol"
-        self.type = "Stick"
+        self.gender = "Stick"
         self.damage = 110
         self.care = 80
     }
@@ -45,7 +45,7 @@ class PieceOfWood: Stick {
     override init() {
         super.init()
         self.name = "Piece of Wood"
-        self.type = "Stick"
+        self.gender = "Stick"
         self.damage = 45
         self.care = 30
     }
@@ -54,10 +54,10 @@ class PieceOfWood: Stick {
 class Crossbow: Weapon {
     init() {
         let name = "Tsangra"
-        let type = "Crossbow"
+        let gender = "Crossbow"
         let damage = 115
         let care = 80
-        super.init(name: name, type: type, damage: damage, care: care)
+        super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
 // When character loot a Best Crossbow
@@ -65,7 +65,7 @@ class Chanon: Crossbow {
     override init() {
         super.init()
         self.name = "Chanon Bolter"
-        self.type = "Crossbow"
+        self.gender = "Crossbow"
         self.damage = 130
         self.care = 90
     }
@@ -75,7 +75,7 @@ class Medieval: Crossbow {
     override init() {
         super.init()
         self.name = "Medieval Crossbow"
-        self.type = "Crossbow"
+        self.gender = "Crossbow"
         self.damage = 55
         self.care = 40
     }
@@ -84,10 +84,10 @@ class Medieval: Crossbow {
 class Axe: Weapon {
     init() {
         let name = "Bardiche"
-        let type = "Axe"
+        let gender = "Axe"
         let damage = 125
         let care = 90
-        super.init(name: name, type: type, damage: damage, care: care)
+        super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
 // When character loot a Best Axe
@@ -95,7 +95,7 @@ class Shadowmourne: Axe {
     override init() {
         super.init()
         self.name = "Shadowmourne"
-        self.type = "Axe"
+        self.gender = "Axe"
         self.damage = 55
         self.care = 40
     }
@@ -105,7 +105,7 @@ class Woodsman: Axe {
     override init() {
         super.init()
         self.name = "Woodsman Axe"
-        self.type = "Axe"
+        self.gender = "Axe"
         self.damage = 55
         self.care = 40
     }
@@ -115,10 +115,10 @@ class Woodsman: Axe {
 class Dagger: Weapon {
     init() {
         let name = "Medieval dagger"
-        let type = "Dagger"
+        let gender = "Dagger"
         let damage = 95
         let care = 40
-        super.init(name: name, type: type, damage: damage, care: care)
+        super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
 // When character loot a Best Dagger
@@ -126,7 +126,7 @@ class FangsFather: Dagger {
     override init() {
         super.init()
         self.name = "Fangs of the Father"
-        self.type = "Dagger"
+        self.gender = "Dagger"
         self.damage = 55
         self.care = 40
     }
@@ -136,37 +136,37 @@ class PlasticDagger: Dagger {
     override init() {
         super.init()
         self.name = "Plastic Dagger"
-        self.type = "Dagger"
+        self.gender = "Dagger"
         self.damage = 55
         self.care = 40
     }
 }
-// Starting game weapon : Pistols
-class Pistols: Weapon {
+// Starting game weapon : Pistol
+class Pistol: Weapon {
     init() {
         let name = "Higgins"
-        let type = "Pistol"
+        let gender = "Pistol"
         let damage = 110
         let care = 75
-        super.init(name: name, type: type, damage: damage, care: care)
+        super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
-// When character loot a Best Pistols
-class BonnieClyde: Pistols {
+// When character loot a Best Pistol
+class BonnieClyde: Pistol {
     override init() {
         super.init()
         self.name = "Bonnie & Clyde"
-        self.type = "Pistol"
+        self.gender = "Pistol"
         self.damage = 55
         self.care = 40
     }
 }
-// When character loot a Bad Pistols
-class WaterPistols: Pistols {
+// When character loot a Bad Pistol
+class WaterPistol: Pistol {
     override init() {
         super.init()
-        self.name = "Water Pistols"
-        self.type = "Pistol"
+        self.name = "Water Pistol"
+        self.gender = "Pistol"
         self.damage = 55
         self.care = 40
     }
@@ -175,10 +175,10 @@ class WaterPistols: Pistols {
 class Bow: Weapon {
     init() {
         let name = "Meerk"
-        let type = "Bow"
+        let gender = "Bow"
         let damage = 100
         let care = 50
-        super.init(name: name, type: type, damage: damage, care: care)
+        super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
 // When character loot a Best Bow
@@ -186,7 +186,7 @@ class Artemis: Bow {
     override init() {
         super.init()
         self.name = "Artemis Bow"
-        self.type = "Bow"
+        self.gender = "Bow"
         self.damage = 55
         self.care = 40
     }
@@ -196,7 +196,7 @@ class PracticeBow: Bow {
     override init() {
         super.init()
         self.name = "Practice Bow"
-        self.type = "Bow"
+        self.gender = "Bow"
         self.damage = 55
         self.care = 40
     }
@@ -205,10 +205,10 @@ class PracticeBow: Bow {
 class Sword: Weapon {
     init() {
         let name = "Damo"
-        let type = "Sword"
+        let gender = "Sword"
         let damage = 120
         let care = 80
-        super.init(name: name, type: type, damage: damage, care: care)
+        super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
 // When character loot a Best Sword
@@ -216,7 +216,7 @@ class Anduril: Sword {
     override init() {
         super.init()
         self.name = "Anduril"
-        self.type = "Sword"
+        self.gender = "Sword"
         self.damage = 55
         self.care = 40
     }
@@ -226,7 +226,7 @@ class Penknife: Sword {
     override init() {
         super.init()
         self.name = "Penknife"
-        self.type = "Sword"
+        self.gender = "Sword"
         self.damage = 55
         self.care = 40
     }
@@ -235,10 +235,10 @@ class Penknife: Sword {
 class Hammer: Weapon {
     init() {
         let name = "Warhammer"
-        let type = "Hammer"
+        let gender = "Hammer"
         let damage = 130
         let care = 95
-        super.init(name: name, type: type, damage: damage, care: care)
+        super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
 // When character loot a Best Hammer
@@ -246,7 +246,7 @@ class Mjollnir: Hammer {
     override init() {
         super.init()
         self.name = "Mjöllnir"
-        self.type = "Hammer"
+        self.gender = "Hammer"
         self.damage = 55
         self.care = 40
     }
@@ -256,7 +256,7 @@ class Mallet: Hammer {
     override init() {
         super.init()
         self.name = "Mallet"
-        self.type = "Hammer"
+        self.gender = "Hammer"
         self.damage = 55
         self.care = 40
     }
