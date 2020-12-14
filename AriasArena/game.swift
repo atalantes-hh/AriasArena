@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 // Initialization of Game Concept
 class Game {
     var round: Int = 1
@@ -16,15 +17,16 @@ class Game {
         self.player1 = player1
         self.player2 = player2
     }
-    // Start the Game
+    
+    // Start the Game and switch round between player 1 and 2
     func runGame() {
         var firstTeamLoose = player1.hasLoose()
         var secondTeamLoose = player2.hasLoose()
         while firstTeamLoose == false && secondTeamLoose == false {
-            if round % 2 == 0 {
+            if round % 2 == 1 {
                 print("🔴 \(player1.name) it's your turn")
                 player1.fight(target: player2)
-            } else if round % 2 == 1 {
+            } else if round % 2 == 0 {
                 print("🔵 \(player2.name) it's your turn")
                 player2.fight(target: player1)
             }
@@ -35,7 +37,7 @@ class Game {
         endGame()
     }
 
-    // Finish the Game
+    // End Game : When a player loose display ending message and go to the statistics for each one.
     func endGame() {
         print("🎮 End Game")
         if player1.hasLoose() {

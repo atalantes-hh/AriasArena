@@ -7,53 +7,43 @@
 
 import Foundation
 
-// Class Player definition
+// Class Player : Define Composition, Fight Actions, Loose case, and Statistics
 class Player {
     var name: String = ""
     static var allAlias: [String] = ["Ragnarsson"]
     var composition: [Character] = [Character]()
     let limitCharacter = 3
     
-    // Choice characters for player team
+    // Choice 3 characters for player team
     func createTeam(characters: [Character]) {
         var availableCharacters = characters
+        print("")
         print("""
-
 Now the time has come to present your tribe, You're the \(name)
 But who are your members and especially what are their roles?
-A character has specific abilities, some can Attack 🤺 or Heal 💊.
+A character has specific abilities, some can Attack ⚔️ or Heal 💊.
 Each one has its own specificities ▫️ Life and 🔹 usable weapons.
-
 """)
-        
+        print("")
         while composition.count < limitCharacter {
             for (index, character) in availableCharacters.enumerated() {
                 print("\(index) 🔸 \(character.name)\n⚛️ Abilities : \(character.abilities)")
             }
             if composition.count == 0 {
-                print("""
-
-                    👤 Who's the first one ?
-                    """)
+                print("")
+                print("👤 Who's the first one ?")
             } else if composition.count == 1 {
-                print("""
-
-                    👤 Who is your second ally ?
-                    """)
+                print("")
+                print("👤 Who is your second ally ?")
             } else if composition.count == 2 {
-                print("""
-
-                    👤 And who are the last ?
-                    """)
+                print("")
+                print("👤 And who are the last ?")
             } else {
-                print("Well, Your team is complete")
             }
             if let value = readLine(), let choice = Int(value), choice <= availableCharacters.count - 1 {
                 let chooseACharacter = availableCharacters[choice]
-                print("""
-                👍 A \(chooseACharacter.name) join \(name) tribe !
-
-                """)
+                print("☑️ A \(chooseACharacter.name) join \(name) tribe !")
+                print("")
                 chooseACharacter.changeAlias()
                 composition.append(chooseACharacter)
                 availableCharacters.remove(at: choice)
@@ -63,28 +53,30 @@ Each one has its own specificities ▫️ Life and 🔹 usable weapons.
     
     // To select a Character during the Battle
     func selectedCharacter(target: Player) -> Character {
+        print("")
         print("❕ \(name) you should select a companion ❕")
         for (index, character) in composition.enumerated() {
-            let fullLife = character.startLife
-            let actualLife = character.life
-            let percent = 100 - (((fullLife - actualLife)/fullLife)*100)
-            if percent == 100 {
-                print("\(index) 🌀 \(character.name) named \(character.alias) has \(character.life) HP \(percent) % 🌕 ")
-            } else if percent >= 75 && percent <= 99 {
-                print("\(index) 🌀 \(character.name) named \(character.alias) has \(character.life) HP \(percent) % 🌖")
-            } else if percent >= 50 && percent <= 74 {
-                print("\(index) 🌀 \(character.name) named \(character.alias) has \(character.life) HP \(percent) % 🌗")
-            } else if percent >= 25 && percent <= 49 {
-                print("\(index) 🌀 \(character.name) named \(character.alias) has \(character.life) HP \(percent) % 🌘")
-            } else if percent >= 1 && percent <= 24 {
-                print("\(index) 🌀 \(character.name) named \(character.alias) has \(character.life) HP \(percent) % 🌔")
+            let currentLife = character.life
+            let lifeThreeQuarter = (character.startLife * 3/4)
+            let halfLife = (character.startLife * 1/2)
+            let lifeLastQuarter = (character.startLife * 1/4)
+            if currentLife == character.startLife {
+                print("\(index) ◽️ \(character.name) named \(character.alias) has \(character.life) HP • 🔆")
+            } else if currentLife >= lifeThreeQuarter {
+                print("\(index) ◽️ \(character.name) named \(character.alias) has \(character.life) HP • 🌕")
+            } else if (currentLife >= halfLife) && (currentLife < lifeThreeQuarter) {
+                print("\(index) ◽️ \(character.name) named \(character.alias) has \(character.life) HP • 🌖")
+            } else if (currentLife < halfLife) && (currentLife > lifeLastQuarter) {
+                print("\(index) ◽️ \(character.name) named \(character.alias) has \(character.life) HP • 🌗")
+            } else if (currentLife <= lifeLastQuarter) && !character.isDead() {
+                print("\(index) ◽️ \(character.name) named \(character.alias) has \(character.life) HP • 🌘")
             } else {
-                print(" ❌ This one can't attack anymore 🌀 \(character.name) named \(character.alias) is died 🌑")
+                print(" ❌ This one can't attack anymore ◽️ \(character.name) named \(character.alias) is died 🌑")
             }
         }
         if let value = readLine(), let choice = Int(value), choice <= composition.count - 1 {
             let selectACharacter = composition[choice]
-            print("🌀 A \(selectACharacter.name) was selected ! \n")
+            print("🟢 A \(selectACharacter.name) was selected ! \n")
             if selectACharacter.isDead() {
                 print("Hum ! sorry but your \(selectACharacter.name) is already dead, you need to choose another ally")
                 return selectedCharacter(target: target)
@@ -103,7 +95,7 @@ Each one has its own specificities ▫️ Life and 🔹 usable weapons.
                 \(currentPlayer.name), choose your next action :
                 1 • 🤺 Attack an ennemy
                 2 • 💊 Healing a partner
-                ⌨️ Press any key to return to the Character selection !
+                ⌨️ Press any other key to return to the Character selection !
                 """)
             if let options = readLine() {
                 switch options {
@@ -134,17 +126,16 @@ Each one has its own specificities ▫️ Life and 🔹 usable weapons.
     func selectedTarget(target: Player) -> Character {
         print("Select your target")
         for (index, character) in target.composition.enumerated() {
-            if character.canAttack() {
+            if character.isDead() {
+                print("🌑 RIP 💠 \(character.name) named \(character.alias) is Dead • ❌ Can't be a target !")
+            } else {
                 print("\(index) 💠 \(character.name) named \(character.alias) has \(character.life) HP" )
-            } else if character.isDead() {
-                print("""
-                🌑 RIP 💠 \(character.name) named \(character.alias) is Dead • ❌ Can't be a target !
-                """)
             }
         }
         if let value = readLine(), let choice = Int(value), choice <= target.composition.count - 1 {
             let selectATarget = target.composition[choice]
-            print("💠 A \(selectATarget.name) was selected ! \n")
+            print("🟢 A \(selectATarget.name) was selected !")
+            print("")
             if selectATarget.isDead() {
                 print("Hum ! sorry but is already dead, you need to choose another target")
                 return selectedTarget(target: target)
@@ -165,7 +156,7 @@ Each one has its own specificities ▫️ Life and 🔹 usable weapons.
         }
     }
     
-    // Print Stat of First Player
+    // Print Stat of the Player
     func stats() {
         if self.hasLoose() {
             print("")

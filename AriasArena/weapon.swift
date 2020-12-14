@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 // Class to define Weapon models
 class Weapon {
     var name: String
@@ -30,6 +31,7 @@ class Stick: Weapon {
         super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
+
 // When character loot a Best Stick
 class Gridarvol: Stick {
     override init() {
@@ -40,6 +42,7 @@ class Gridarvol: Stick {
         self.care = 80
     }
 }
+
 // When character loot a Bad Stick
 class PieceOfWood: Stick {
     override init() {
@@ -50,6 +53,7 @@ class PieceOfWood: Stick {
         self.care = 30
     }
 }
+
 // Starting game weapon : Crossbow
 class Crossbow: Weapon {
     init() {
@@ -60,6 +64,7 @@ class Crossbow: Weapon {
         super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
+
 // When character loot a Best Crossbow
 class Chanon: Crossbow {
     override init() {
@@ -70,6 +75,7 @@ class Chanon: Crossbow {
         self.care = 90
     }
 }
+
 // When character loot a Bad Crossbow
 class Medieval: Crossbow {
     override init() {
@@ -80,6 +86,7 @@ class Medieval: Crossbow {
         self.care = 40
     }
 }
+
 // Starting game weapon : Axe
 class Axe: Weapon {
     init() {
@@ -90,6 +97,7 @@ class Axe: Weapon {
         super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
+
 // When character loot a Best Axe
 class Shadowmourne: Axe {
     override init() {
@@ -100,6 +108,7 @@ class Shadowmourne: Axe {
         self.care = 40
     }
 }
+
 // When character loot a Bad Axe
 class Woodsman: Axe {
     override init() {
@@ -121,6 +130,7 @@ class Dagger: Weapon {
         super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
+
 // When character loot a Best Dagger
 class FangsFather: Dagger {
     override init() {
@@ -131,6 +141,7 @@ class FangsFather: Dagger {
         self.care = 40
     }
 }
+
 // When character loot a Bad Dagger
 class PlasticDagger: Dagger {
     override init() {
@@ -141,6 +152,7 @@ class PlasticDagger: Dagger {
         self.care = 40
     }
 }
+
 // Starting game weapon : Pistol
 class Pistol: Weapon {
     init() {
@@ -151,6 +163,7 @@ class Pistol: Weapon {
         super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
+
 // When character loot a Best Pistol
 class BonnieClyde: Pistol {
     override init() {
@@ -161,6 +174,7 @@ class BonnieClyde: Pistol {
         self.care = 40
     }
 }
+
 // When character loot a Bad Pistol
 class WaterPistol: Pistol {
     override init() {
@@ -171,6 +185,7 @@ class WaterPistol: Pistol {
         self.care = 40
     }
 }
+
 // Starting game weapon : Bow
 class Bow: Weapon {
     init() {
@@ -181,6 +196,7 @@ class Bow: Weapon {
         super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
+
 // When character loot a Best Bow
 class Artemis: Bow {
     override init() {
@@ -191,6 +207,7 @@ class Artemis: Bow {
         self.care = 40
     }
 }
+
 // When character loot a Bad Bow
 class PracticeBow: Bow {
     override init() {
@@ -201,6 +218,7 @@ class PracticeBow: Bow {
         self.care = 40
     }
 }
+
 // Starting game weapon : Sword
 class Sword: Weapon {
     init() {
@@ -211,6 +229,7 @@ class Sword: Weapon {
         super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
+
 // When character loot a Best Sword
 class Anduril: Sword {
     override init() {
@@ -221,6 +240,7 @@ class Anduril: Sword {
         self.care = 40
     }
 }
+
 // When character loot a Bad Sword
 class Penknife: Sword {
     override init() {
@@ -231,6 +251,7 @@ class Penknife: Sword {
         self.care = 40
     }
 }
+
 // Starting game weapon : Hammer
 class Hammer: Weapon {
     init() {
@@ -241,6 +262,7 @@ class Hammer: Weapon {
         super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
+
 // When character loot a Best Hammer
 class Mjollnir: Hammer {
     override init() {
@@ -251,6 +273,7 @@ class Mjollnir: Hammer {
         self.care = 40
     }
 }
+
 // When character loot a Bad Hammer
 class Mallet: Hammer {
     override init() {
