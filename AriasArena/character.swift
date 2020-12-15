@@ -44,7 +44,7 @@ class Character: Equatable {
     }
     
     // Function to change Alias before game start after choose a character, by default a name exist for each character.
-    func changeAlias() {
+    internal func changeAlias() {
         print("Choose a name for your \(self.name) ✍️")
         print("If you don't have any idea just press Enter ⌨️")
         if let newAlias = readLine() {
@@ -68,7 +68,8 @@ class Character: Equatable {
     }
     
     // Function to choice a Weapon before game start after choose a character
-    func witchWeapon() {
+    internal func witchWeapon() {
+        print("")
         print("Ok, and witch weapon your \(name) will use for this adventure ?")
         for (index, selectAWeapon) in weaponGender.enumerated() {
             if canHeal {
@@ -89,16 +90,13 @@ class Character: Equatable {
     }
     
     // Function to Attack a character in the other team
-    func attack(target: Character, weapon: Weapon) {
+    internal func attack(target: Character, weapon: Weapon) {
         target.life -= weapon.damage
         print("🤺 The \(self.name) made \(weapon.damage) points of damages to \(target.name)")
-        if isDead() {
-            print("The \(name) named \(alias) is dead 🗿 ")
-        }
     }
     
     // Function to Healing a charcter in your own team
-    func healing(partner: Character, target: Character, weapon: Weapon) {
+    internal func healing(partner: Character, target: Character, weapon: Weapon) {
         partner.life += weapon.care
         if partner.life >= partner.startLife {
             partner.life = partner.startLife
@@ -109,7 +107,7 @@ class Character: Equatable {
     }
     
     // Display when character is dead
-    func isDead() -> Bool {
+    internal func isDead() -> Bool {
         return life <= 0
     }
 }

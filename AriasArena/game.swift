@@ -19,7 +19,7 @@ class Game {
     }
     
     // Start the Game and switch round between player 1 and 2
-    func runGame() {
+    internal func runGame() {
         var firstTeamLoose = player1.hasLoose()
         var secondTeamLoose = player2.hasLoose()
         while firstTeamLoose == false && secondTeamLoose == false {
@@ -36,9 +36,9 @@ class Game {
         }
         endGame()
     }
-
+    
     // End Game : When a player loose display ending message and go to the statistics for each one.
-    func endGame() {
+    private func endGame() {
         print("🎮 End Game")
         if player1.hasLoose() {
             print("""

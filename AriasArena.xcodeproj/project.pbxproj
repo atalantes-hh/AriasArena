@@ -74,8 +74,8 @@
 				1E5BA0B52549A9A000822CE5 /* Game.swift */,
 				1E5BA0B22549A99A00822CE5 /* Character.swift */,
 				1E5BA0BB2549A9AE00822CE5 /* Weapon.swift */,
-				1E22B990257A86DF00FB5858 /* Chest.swift */,
 				1E5BA0B82549A9A700822CE5 /* Player.swift */,
+				1E22B990257A86DF00FB5858 /* Chest.swift */,
 			);
 			path = AriasArena;
 			sourceTree = "<group>";

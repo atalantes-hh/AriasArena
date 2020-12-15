@@ -17,7 +17,8 @@ class Configuration {
         [Stick(), Crossbow(), Axe(), Dagger(), Pistol(), Bow(), Sword(), Hammer()]
     
     // Function General Menu
-    func showGeneral() {
+    internal func showGeneral() {
+        print("")
         print("▶︎ Main Menu"
                 + "\n1. 🕹️ Game Mode : 1 vs 1"
                 + "\n2. ❓ How to play")
@@ -51,7 +52,7 @@ class Configuration {
     }
     
     // Function Introduction for Team Player1 : Choice a Tribe Name
-    func configureFirstPlayer() {
+    private func configureFirstPlayer() {
         print("")
         print("🧔 Hello, adventurer, what is the name of your tribe?")
         print("If you don't have any idea just press Enter ⌨️")
@@ -76,7 +77,7 @@ class Configuration {
     }
     
     // Function Introduction for Team Player2 : Choice a Tribe Name
-    func configureSecondPlayer() {
+    private func configureSecondPlayer() {
         print("")
         print("""
                 🧔 But first let me introduce you to your rivals of the day.
@@ -109,12 +110,12 @@ class Configuration {
     }
     
     // Enumeration to choice Build Teams Narration
-    enum PlayerBuild {
+    private enum PlayerBuild {
         case teamPlayer1, teamPlayer2
     }
     
     // Function Build Teams Narration to RPG Introduction of each team
-    func teamBuild(team: PlayerBuild) {
+    private func teamBuild(team: PlayerBuild) {
         if team == .teamPlayer1 {
             print("""
     Now that the introductions are made, let's see who are your companions
@@ -149,7 +150,7 @@ class Configuration {
     }
     
     // Function Explain Life visual concept
-    func explainLife() {
+    private func explainLife() {
         print("")
         print("🧔 Oh ! One last thing, your character life is like the Sun 🔆 and the Moon 🌕.")
         print("All along the battle, it will evolve according to your level of life.")
@@ -167,7 +168,7 @@ class Configuration {
     }
     
     // Game Mode : Explain the Game
-    func helpMode() {
+    private func helpMode() {
         print("""
             Arias Arena is a turn-based fight between two teams of 3 characters.
             At the beginning of the game each team leader chooses the name of his tribe and the members of his tribe.
@@ -211,5 +212,40 @@ class Configuration {
         print("Now let's go to the game 🕹️")
         print("")
         configuration.showGeneral()
+    }
+    
+    // Function Ending Menu
+    internal func endingMenu() {
+        print("")
+        print("🧔 That was a great battle")
+        print("Do you want to play again ?")
+        print("")
+        print("▶︎ Ending Menu"
+                + "\n1. New Game "
+                + "\n2. Display Last Game Stats and Exit"
+                + "\n3. Exit Game")
+        print("")
+        print("What do you want to do ?")
+        if let menuChoice = readLine() {
+            switch menuChoice {
+            case "1":
+                showGeneral()
+            case "2":
+                game.player1.stats()
+                game.player2.stats()
+                print("🖖 Bye ! See you later in Arias World 🏔")
+                exit(0)
+            case "3":
+                print("🖖 Bye ! See you later in Arias World 🏔")
+                exit(0)
+            default:
+                print("Press 1 to Play Again")
+                print("Press 2 to Exit")
+                print("")
+                while true {
+                    endingMenu()
+                }
+            }
+        }
     }
 }

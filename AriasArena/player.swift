@@ -15,7 +15,7 @@ class Player {
     let limitCharacter = 3
     
     // Choice 3 characters for player team
-    func createTeam(characters: [Character]) {
+    internal func createTeam(characters: [Character]) {
         var availableCharacters = characters
         print("")
         print("""
@@ -52,7 +52,7 @@ Each one has its own specificities ▫️ Life and 🔹 usable weapons.
     }
     
     // To select a Character during the Battle
-    func selectedCharacter(target: Player) -> Character {
+    private func selectedCharacter(target: Player) -> Character {
         print("")
         print("❕ \(name) you should select a companion ❕")
         for (index, character) in composition.enumerated() {
@@ -88,7 +88,7 @@ Each one has its own specificities ▫️ Life and 🔹 usable weapons.
     }
     
     // Define the Fight action : select a character / Choice an action / Choice a target
-    func fight(target: Player) {
+    internal func fight(target: Player) {
         let currentPlayer = selectedCharacter(target: target)
         if currentPlayer.canHeal == true {
             print("""
@@ -123,7 +123,8 @@ Each one has its own specificities ▫️ Life and 🔹 usable weapons.
     }
     
     // To select a Target during the Battle
-    func selectedTarget(target: Player) -> Character {
+    private func selectedTarget(target: Player) -> Character {
+        print("")
         print("Select your target")
         for (index, character) in target.composition.enumerated() {
             if character.isDead() {
@@ -148,7 +149,7 @@ Each one has its own specificities ▫️ Life and 🔹 usable weapons.
     }
     
     // When a Team Loose : Game is Over
-    func hasLoose() -> Bool {
+    internal func hasLoose() -> Bool {
         if composition[0].isDead() && composition[1].isDead() && composition[2].isDead() {
             return true
         } else {
@@ -157,18 +158,22 @@ Each one has its own specificities ▫️ Life and 🔹 usable weapons.
     }
     
     // Print Stat of the Player
-    func stats() {
+    internal func stats() {
         if self.hasLoose() {
             print("")
             print("❕ Looser Team \(name) composition was :")
+            print("⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿")
+            
         } else {
             print("")
             print("🎉 Winner Team \(name) composition was :")
+            print("⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿")
+            
         }
         for (index, character) in composition.enumerated() {
             if character.isDead() {
                 print("""
-\(index) 🧙 : The \(character.name) call \(character.alias) is Dead
+\(index) 🧙 : The \(character.name) call \(character.alias) is Dead 🌑
 with this \(character.weapon.gender) named \(character.weapon.name)
 """)
             } else {

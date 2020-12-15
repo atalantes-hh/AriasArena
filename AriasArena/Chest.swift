@@ -11,7 +11,7 @@ import Foundation
 class Chest {
     
     // Function to check if Dice is in range else return to fight
-    func loot(current: Character) {
+    internal func loot(current: Character) {
         let newWeaponList = getWeaponList(current: current)
         guard !newWeaponList.isEmpty else { return }
         
@@ -24,17 +24,19 @@ class Chest {
                 🔸 The new weapon is this \(current.weapon.gender) named \(current.weapon.name)
                 🔹 Damage: \(current.weapon.damage) Pts 🔹 Care: \(current.weapon.care) Pts
                 """)
+            print("")
             // Else just display Damages
         } else {
             print("""
                 🔸 The new weapon is this \(current.weapon.gender) named \(current.weapon.name)
                 🔹 Damage: \(current.weapon.damage)
                 """)
+            print("")
         }
     }
     
     // Rolling a Dice to obtain a new weapon or not
-    func getWeaponList(current: Character) -> [Weapon] {
+    private func getWeaponList(current: Character) -> [Weapon] {
         let rollingDice = Int.random(in: 0...100)
         let bestWeapon =
             [Gridarvol(), Chanon(), Shadowmourne(), FangsFather(), BonnieClyde(), Artemis(), Anduril(), Mjollnir()]
@@ -43,6 +45,7 @@ class Chest {
         var newWeaponList: [Weapon] = []
         // If rolling >= 75 : Get a better Weapon
         if rollingDice >= 75 {
+            print("")
             print("""
 Oh! 🎲 The dice of destiny have rolled. You have won a new weapon,
 and it will replace your previous weapon \(current.weapon.name) !
@@ -51,8 +54,9 @@ and it will replace your previous weapon \(current.weapon.name) !
                 return bestWeapon.filter { $0.gender == weapon.gender }
             }
             newWeaponList = Array(filterGender.joined())
-        // If rolling <= 30 : Get a bad Weapon
+            // If rolling <= 30 : Get a bad Weapon
         } else if rollingDice <= 30 {
+            print("")
             print("""
 Oh! 🎲 The dice of destiny have rolled. You have won a new weapon,
 and it will replace your previous weapon \(current.weapon.name) !
