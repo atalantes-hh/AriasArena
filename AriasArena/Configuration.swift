@@ -210,11 +210,13 @@ final class Configuration {
         print("And the weapon specificities")
         // Listing Weapons Type available (Name, Damages, Care)
         print("❕ Care Points ⛑ will active only for the healer character")
+        print("⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊")
         
         // Listing Weapons available and specificities (Damage, Care)
         for (index, weapon) in availableWeapons.enumerated() {
             print("\(index) 🔸 \(weapon.gender) 🔸 Named \(weapon.name)")
             print("         🔹 Damage: \(weapon.damage) Pts 🔹 Care: \(weapon.care) Pts")
+            print("⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊⎊")
         }
         print("")
         print("🧔 In this worldm ysterious things can happen ...")

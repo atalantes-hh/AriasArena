@@ -26,8 +26,8 @@ class Stick: Weapon {
     init() {
         let name = "Shepherd's crook"
         let gender = "Stick"
-        let damage = 90
-        let care = 60
+        let damage = 105
+        let care = 95
         super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
@@ -38,8 +38,8 @@ class Gridarvol: Stick {
         super.init()
         self.name = "Gridarvol"
         self.gender = "Stick"
-        self.damage = 110
-        self.care = 80
+        self.damage = 125
+        self.care = 115
     }
 }
 
@@ -49,8 +49,8 @@ class PieceOfWood: Stick {
         super.init()
         self.name = "Piece of Wood"
         self.gender = "Stick"
-        self.damage = 45
-        self.care = 30
+        self.damage = 35
+        self.care = 25
     }
 }
 
@@ -59,8 +59,8 @@ class Crossbow: Weapon {
     init() {
         let name = "Tsangra"
         let gender = "Crossbow"
-        let damage = 115
-        let care = 80
+        let damage = 125
+        let care = 0
         super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
@@ -71,8 +71,8 @@ class Chanon: Crossbow {
         super.init()
         self.name = "Chanon Bolter"
         self.gender = "Crossbow"
-        self.damage = 130
-        self.care = 90
+        self.damage = 135
+        self.care = 0
     }
 }
 
@@ -82,8 +82,8 @@ class Medieval: Crossbow {
         super.init()
         self.name = "Medieval Crossbow"
         self.gender = "Crossbow"
-        self.damage = 55
-        self.care = 40
+        self.damage = 45
+        self.care = 0
     }
 }
 
@@ -92,8 +92,8 @@ class Axe: Weapon {
     init() {
         let name = "Bardiche"
         let gender = "Axe"
-        let damage = 125
-        let care = 90
+        let damage = 90
+        let care = 0
         super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
@@ -104,8 +104,8 @@ class Shadowmourne: Axe {
         super.init()
         self.name = "Shadowmourne"
         self.gender = "Axe"
-        self.damage = 55
-        self.care = 40
+        self.damage = 120
+        self.care = 0
     }
 }
 
@@ -115,8 +115,8 @@ class Woodsman: Axe {
         super.init()
         self.name = "Woodsman Axe"
         self.gender = "Axe"
-        self.damage = 55
-        self.care = 40
+        self.damage = 45
+        self.care = 0
     }
 }
 
@@ -125,8 +125,8 @@ class Dagger: Weapon {
     init() {
         let name = "Medieval dagger"
         let gender = "Dagger"
-        let damage = 95
-        let care = 40
+        let damage = 110
+        let care = 95
         super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
@@ -137,8 +137,8 @@ class FangsFather: Dagger {
         super.init()
         self.name = "Fangs of the Father"
         self.gender = "Dagger"
-        self.damage = 55
-        self.care = 40
+        self.damage = 130
+        self.care = 110
     }
 }
 
@@ -148,8 +148,8 @@ class PlasticDagger: Dagger {
         super.init()
         self.name = "Plastic Dagger"
         self.gender = "Dagger"
-        self.damage = 55
-        self.care = 40
+        self.damage = 30
+        self.care = 30
     }
 }
 
@@ -158,8 +158,8 @@ class Pistol: Weapon {
     init() {
         let name = "Higgins"
         let gender = "Pistol"
-        let damage = 110
-        let care = 75
+        let damage = 120
+        let care = 100
         super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
@@ -170,8 +170,8 @@ class BonnieClyde: Pistol {
         super.init()
         self.name = "Bonnie & Clyde"
         self.gender = "Pistol"
-        self.damage = 55
-        self.care = 40
+        self.damage = 130
+        self.care = 110
     }
 }
 
@@ -181,8 +181,8 @@ class WaterPistol: Pistol {
         super.init()
         self.name = "Water Pistol"
         self.gender = "Pistol"
-        self.damage = 55
-        self.care = 40
+        self.damage = 30
+        self.care = 25
     }
 }
 
@@ -191,8 +191,8 @@ class Bow: Weapon {
     init() {
         let name = "Meerk"
         let gender = "Bow"
-        let damage = 100
-        let care = 50
+        let damage = 115
+        let care = 90
         super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
@@ -203,8 +203,8 @@ class Artemis: Bow {
         super.init()
         self.name = "Artemis Bow"
         self.gender = "Bow"
-        self.damage = 55
-        self.care = 40
+        self.damage = 140
+        self.care = 105
     }
 }
 
@@ -214,8 +214,8 @@ class PracticeBow: Bow {
         super.init()
         self.name = "Practice Bow"
         self.gender = "Bow"
-        self.damage = 55
-        self.care = 40
+        self.damage = 35
+        self.care = 35
     }
 }
 
@@ -224,8 +224,8 @@ class Sword: Weapon {
     init() {
         let name = "Damo"
         let gender = "Sword"
-        let damage = 120
-        let care = 80
+        let damage = 85
+        let care = 90
         super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
@@ -236,8 +236,8 @@ class Anduril: Sword {
         super.init()
         self.name = "Anduril"
         self.gender = "Sword"
-        self.damage = 55
-        self.care = 40
+        self.damage = 125
+        self.care = 125
     }
 }
 
@@ -247,8 +247,8 @@ class Penknife: Sword {
         super.init()
         self.name = "Penknife"
         self.gender = "Sword"
-        self.damage = 55
-        self.care = 40
+        self.damage = 50
+        self.care = 45
     }
 }
 
@@ -257,8 +257,8 @@ class Hammer: Weapon {
     init() {
         let name = "Warhammer"
         let gender = "Hammer"
-        let damage = 130
-        let care = 95
+        let damage = 95
+        let care = 85
         super.init(name: name, gender: gender, damage: damage, care: care)
     }
 }
@@ -269,8 +269,8 @@ class Mjollnir: Hammer {
         super.init()
         self.name = "Mjöllnir"
         self.gender = "Hammer"
-        self.damage = 55
-        self.care = 40
+        self.damage = 125
+        self.care = 115
     }
 }
 
@@ -280,7 +280,7 @@ class Mallet: Hammer {
         super.init()
         self.name = "Mallet"
         self.gender = "Hammer"
-        self.damage = 55
-        self.care = 40
+        self.damage = 40
+        self.care = 30
     }
 }

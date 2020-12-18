@@ -120,7 +120,7 @@ final class Witcher: Character {
     init() {
         let name = "Witcher"
         let alias = "Gerald"
-        let startLife = 120 //600
+        let startLife = 500
         let life = startLife
         let weaponGender = [Sword(), Axe()]
         let weapon = weaponGender.first!
@@ -144,7 +144,7 @@ final class Shan: Character {
     init() {
         let name = "Shan"
         let alias = "Naco"
-        let startLife = 60 //300
+        let startLife = 280
         let life = startLife
         let weaponGender = [Sword(), Bow(), Hammer()]
         let weapon = weaponGender.first!
@@ -168,7 +168,7 @@ final class Mystic: Character {
     init() {
         let name = "Mystic"
         let alias = "Raka"
-        let startLife = 65 //325
+        let startLife = 290
         let life = startLife
         let weaponGender = [Bow(), Dagger()]
         let weapon = weaponGender.first!
@@ -192,7 +192,7 @@ final class DemonHunter: Character {
     init() {
         let name = "Demon Hunter"
         let alias = "Kisa"
-        let startLife = 90 //450
+        let startLife = 350
         let life = startLife
         let weaponGender = [Crossbow(), Pistol(), Bow()]
         let weapon = weaponGender.first!
@@ -216,12 +216,12 @@ final class DarthPriest: Character {
     init() {
         let name = "Darth Priest"
         let alias = "Magthael"
-        let startLife = 70 //350
+        let startLife = 300
         let life = startLife
         let weaponGender = [Stick(), Dagger(), Sword()]
         let weapon = weaponGender.first!
         let canHeal = true
-        let abilities = "⚔️ or 💊 ▫️ Life : \(startLife) HP 🔹 Weapon available : Stick, Dagger"
+        let abilities = "⚔️ or 💊 ▫️ Life : \(startLife) HP 🔹 Weapon available : Stick, Dagger, Sword"
         super.init(
             name: name,
             alias: alias,
@@ -240,7 +240,7 @@ final class Mage: Character {
     init() {
         let name = "Mage"
         let alias = "Gandalf"
-        let startLife = 80 //400
+        let startLife = 340
         let life = startLife
         let weaponGender = [Stick(), Dagger()]
         let weapon = weaponGender.first!
@@ -264,7 +264,7 @@ final class Nanga: Character {
     init() {
         let name = "Nanga"
         let alias = "Arthas"
-        let startLife = 120 //600
+        let startLife = 490
         let life = startLife
         let weaponGender = [Hammer(), Axe(), Sword()]
         let weapon = weaponGender.first!
@@ -288,7 +288,7 @@ final class Scientist: Character {
     init() {
         let name = "Scientist"
         let alias = "Conor"
-        let startLife = 85 //420
+        let startLife = 360
         let life = startLife
         let weaponGender = [Pistol(), Bow()]
         let weapon = weaponGender.first!
