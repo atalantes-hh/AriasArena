@@ -9,6 +9,7 @@ import Foundation
 
 // Class Character : Define the Features of each character
 class Character: Equatable {
+    
     // Compare Character in each team
     static func == (lhs: Character, rhs: Character) -> Bool {
         lhs.name == rhs.name
@@ -44,7 +45,7 @@ class Character: Equatable {
     }
     
     // Function to change Alias before game start after choose a character, by default a name exist for each character.
-    internal func changeAlias() {
+    func changeAlias() {
         print("Choose a name for your \(self.name) ✍️")
         print("If you don't have any idea just press Enter ⌨️")
         if let newAlias = readLine() {
@@ -68,9 +69,11 @@ class Character: Equatable {
     }
     
     // Function to choice a Weapon before game start after choose a character
-    internal func witchWeapon() {
+    func witchWeapon() {
         print("")
         print("Ok, and witch weapon your \(name) will use for this adventure ?")
+        
+        // Listing all weapon Gender for the character
         for (index, selectAWeapon) in weaponGender.enumerated() {
             if canHeal {
                 print("\(index) 🔸 The \(selectAWeapon.gender)")
@@ -90,13 +93,13 @@ class Character: Equatable {
     }
     
     // Function to Attack a character in the other team
-    internal func attack(target: Character, weapon: Weapon) {
+    func attack(target: Character, weapon: Weapon) {
         target.life -= weapon.damage
         print("🤺 The \(self.name) made \(weapon.damage) points of damages to \(target.name)")
     }
     
     // Function to Healing a charcter in your own team
-    internal func healing(partner: Character, target: Character, weapon: Weapon) {
+    func healing(partner: Character, target: Character, weapon: Weapon) {
         partner.life += weapon.care
         if partner.life >= partner.startLife {
             partner.life = partner.startLife
@@ -106,14 +109,14 @@ class Character: Equatable {
         }
     }
     
-    // Display when character is dead
-    internal func isDead() -> Bool {
+    //  To act when the character is dead
+    func isDead() -> Bool {
         return life <= 0
     }
 }
 
 // Character Witcher : A Melee Fighter
-class Witcher: Character {
+final class Witcher: Character {
     init() {
         let name = "Witcher"
         let alias = "Gerald"
@@ -137,7 +140,7 @@ class Witcher: Character {
 }
 
 // Character Shan : A Melee Fighter and Healing with the power of the Earth Elements
-class Shan: Character {
+final class Shan: Character {
     init() {
         let name = "Shan"
         let alias = "Naco"
@@ -161,7 +164,7 @@ class Shan: Character {
 }
 
 // Character Mystic : A Ranged Fighter and Healing with the power of the Nature
-class Mystic: Character {
+final class Mystic: Character {
     init() {
         let name = "Mystic"
         let alias = "Raka"
@@ -185,7 +188,7 @@ class Mystic: Character {
 }
 
 // Character DemonHunter : A Ranged Fighter
-class DemonHunter: Character {
+final class DemonHunter: Character {
     init() {
         let name = "Demon Hunter"
         let alias = "Kisa"
@@ -209,7 +212,7 @@ class DemonHunter: Character {
 }
 
 // Character DarthPriest : A Ranged Fighter and Healing with the power of the Darth Matter
-class DarthPriest: Character {
+final class DarthPriest: Character {
     init() {
         let name = "Darth Priest"
         let alias = "Magthael"
@@ -233,7 +236,7 @@ class DarthPriest: Character {
 }
 
 // Character Mage : A Ranged Fighter
-class Mage: Character {
+final class Mage: Character {
     init() {
         let name = "Mage"
         let alias = "Gandalf"
@@ -257,7 +260,7 @@ class Mage: Character {
 }
 
 // Character Nanga : A Melee Fighter
-class Nanga: Character {
+final class Nanga: Character {
     init() {
         let name = "Nanga"
         let alias = "Arthas"
@@ -281,7 +284,7 @@ class Nanga: Character {
 }
 
 // Character Scientist : A Ranged Fighter and Healing with the power of science
-class Scientist: Character {
+final class Scientist: Character {
     init() {
         let name = "Scientist"
         let alias = "Conor"
