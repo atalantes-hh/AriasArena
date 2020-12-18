@@ -7,19 +7,20 @@
 
 import Foundation
 
-// Initialization of Game Concept
-class Game {
+// Initialization of Game set with Configuration
+final class Game {
     var round: Int = 1
     let player1: Player
     let player2: Player
     let chest = Chest()
+    
     init(player1: Player, player2: Player) {
         self.player1 = player1
         self.player2 = player2
     }
     
     // Start the Game and switch round between player 1 and 2
-    internal func runGame() {
+    func runGame() {
         var firstTeamLoose = player1.hasLoose()
         var secondTeamLoose = player2.hasLoose()
         while firstTeamLoose == false && secondTeamLoose == false {
